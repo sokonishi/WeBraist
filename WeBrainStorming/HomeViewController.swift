@@ -57,11 +57,12 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "boardCell") as! CustomTableViewCell
         
         //セルにテキストを代入
-        cell.textLabel?.text = themeList[indexPath.row]
-        cell.detailTextLabel?.text = detailList[indexPath.row]
+        cell.imageOfDiscussion.image = UIImage(named: "mindmap.jpg")
+        cell.themeLabel.text = themeList[indexPath.row]
+        cell.detailLabel.text = detailList[indexPath.row]
         
         return cell
     }

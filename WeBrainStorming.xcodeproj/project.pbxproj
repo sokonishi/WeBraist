@@ -16,6 +16,8 @@
 		4821471621672897000CFEA7 /* スクリーンショット 2018-10-05 13.03.17.png in Resources */ = {isa = PBXBuildFile; fileRef = 4821471521672893000CFEA7 /* スクリーンショット 2018-10-05 13.03.17.png */; };
 		4821471821673473000CFEA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821471721673473000CFEA7 /* HomeViewController.swift */; };
 		4821471A21673B61000CFEA7 /* SetBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821471921673B61000CFEA7 /* SetBoardViewController.swift */; };
+		4821471C2168677A000CFEA7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821471B2168677A000CFEA7 /* CustomTableViewCell.swift */; };
+		4821471E21687E9B000CFEA7 /* mindmap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4821471D21687E9B000CFEA7 /* mindmap.jpg */; };
 		48B841F02160B69200FD0688 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B841EF2160B69200FD0688 /* AppDelegate.swift */; };
 		48B841F22160B69200FD0688 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B841F12160B69200FD0688 /* ViewController.swift */; };
 		48B841F52160B69200FD0688 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B841F32160B69200FD0688 /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 		4821471521672893000CFEA7 /* スクリーンショット 2018-10-05 13.03.17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "スクリーンショット 2018-10-05 13.03.17.png"; sourceTree = "<group>"; };
 		4821471721673473000CFEA7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4821471921673B61000CFEA7 /* SetBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBoardViewController.swift; sourceTree = "<group>"; };
+		4821471B2168677A000CFEA7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		4821471D21687E9B000CFEA7 /* mindmap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mindmap.jpg; sourceTree = "<group>"; };
 		48B841EC2160B69200FD0688 /* WeBrainStorming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeBrainStorming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B841EF2160B69200FD0688 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48B841F12160B69200FD0688 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,10 +92,12 @@
 				4821471721673473000CFEA7 /* HomeViewController.swift */,
 				4821471921673B61000CFEA7 /* SetBoardViewController.swift */,
 				48B841F32160B69200FD0688 /* Main.storyboard */,
+				4821471B2168677A000CFEA7 /* CustomTableViewCell.swift */,
 				48B841F62160B69600FD0688 /* Assets.xcassets */,
 				482147072166C923000CFEA7 /* WebRaist.png */,
 				4821471521672893000CFEA7 /* スクリーンショット 2018-10-05 13.03.17.png */,
 				48B841F82160B69600FD0688 /* LaunchScreen.storyboard */,
+				4821471D21687E9B000CFEA7 /* mindmap.jpg */,
 				48B841FB2160B69600FD0688 /* Info.plist */,
 				4821470D2166D280000CFEA7 /* GoogleService-Info.plist */,
 			);
@@ -179,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4821471E21687E9B000CFEA7 /* mindmap.jpg in Resources */,
 				4821471621672897000CFEA7 /* スクリーンショット 2018-10-05 13.03.17.png in Resources */,
 				4821470E2166D281000CFEA7 /* GoogleService-Info.plist in Resources */,
 				482147082166C923000CFEA7 /* WebRaist.png in Resources */,
@@ -276,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4821471C2168677A000CFEA7 /* CustomTableViewCell.swift in Sources */,
 				4821470C2166CC1A000CFEA7 /* LoginViewController.swift in Sources */,
 				48B841F22160B69200FD0688 /* ViewController.swift in Sources */,
 				4821471A21673B61000CFEA7 /* SetBoardViewController.swift in Sources */,
