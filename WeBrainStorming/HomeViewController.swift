@@ -14,10 +14,13 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 
     var defaultStore : Firestore!
     @IBOutlet weak var discussionTableView: UITableView!
+    //リフレッシュ
+    private let refreshControl = UIRefreshControl()
     
     var themeList:[String] = []
     var detailList:[String] = []
     var idList:[String] = []
+    let user = Auth.auth().currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +34,12 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         detailList = []
         idList = []
         
+        //リロードで更新のやつ
+        discussionTableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(HomeViewController.refresh(sender:)), for: .valueChanged)
+        
         //getDocumentsは取ってくる
-        defaultStore.collection("DiscussionBoard").getDocuments() { (querySnapshot, err) in
+        defaultStore.collection("DiscussionBoard").whereField("AccountID", isEqualTo: user?.uid).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -49,6 +56,35 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         print(themeList)
         print(detailList)
         print(idList)
+        
+        print("ここから")
+        print(user?.uid)
+    }
+    
+    //リロードで更新のやつ
+    @objc func refresh(sender: UIRefreshControl) {
+        // ここに通信処理などデータフェッチの処理を書く
+        // データフェッチが終わったらUIRefreshControl.endRefreshing()を呼ぶ必要がある
+        
+        themeList = []
+        detailList = []
+        idList = []
+        
+        defaultStore.collection("DiscussionBoard").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    self.idList.append(document.documentID)
+                    self.themeList.append(document.data()["ThemeOfDiscussion"] as! String)
+                    self.detailList.append(document.data()["DetailOfDiscussion"] as! String)
+                }
+                self.discussionTableView.reloadData()
+            }
+        }
+        
+        refreshControl.endRefreshing()
         
     }
 

@@ -15,13 +15,17 @@
         <!--Login View Controller-->
         <scene sceneID="1QP-q3-TFl">
             <objects>
-                <viewController id="leh-15-TEs" customClass="LoginViewController" customModule="WeBrainStorming" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="leh-15-TEs" customClass="LoginViewController" customModule="WeBrainStorming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c2G-oy-XwE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WebRaist.png" translatesAutoresizingMaskIntoConstraints="NO" id="nQY-pP-emh">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0FL-zt-Mrp" appends="YES" id="COc-2d-GOP"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WeBraist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kN4-lc-s2X">
                                 <rect key="frame" x="246" y="615" width="104" height="32"/>
@@ -96,13 +100,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsr-7X-YC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="0FL-zt-Mrp">
+                    <connections>
+                        <action selector="tapScreen:" destination="leh-15-TEs" id="H4H-c7-47e"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2097" y="34"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kLW-YI-Yb0">
             <objects>
-                <tabBarController id="8w5-Ac-ZVj" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeViewController" id="8w5-Ac-ZVj" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5py-yT-OxV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -133,7 +142,9 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="HOME" id="3lt-y3-Efs"/>
+                                    <navigationItem title="HOME" id="3lt-y3-Efs">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="lP5-jr-BMf"/>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1E7-hR-OUr">
@@ -303,7 +314,10 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="SETTING BOARD" id="Cvg-5F-ddX"/>
+                                    <navigationItem title="SETTING BOARD" id="Cvg-5F-ddX">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="8w1-aR-zKr"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" id="CqB-U8-4Xy"/>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Og4-5D-VVg">
@@ -385,6 +399,7 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="IWe-va-PFl" firstAttribute="leading" secondItem="vmu-qb-MLg" secondAttribute="leading" id="3VP-C0-e8R"/>
                                     <constraint firstItem="6df-dv-CdX" firstAttribute="top" secondItem="Og4-5D-VVg" secondAttribute="top" constant="58" id="6f2-jR-4Ia"/>
@@ -414,6 +429,9 @@
                                     <constraint firstItem="FIO-OQ-VCV" firstAttribute="centerX" secondItem="IWe-va-PFl" secondAttribute="centerX" id="qkb-92-Ooy"/>
                                     <constraint firstItem="jXJ-Tt-iNx" firstAttribute="top" secondItem="ym0-dA-ny0" secondAttribute="top" id="uBL-pa-yJ2"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Yhk-Im-QRb" appends="YES" id="zTI-Gt-jpt"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.30196078431372547" green="0.76862745098039209" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -435,6 +453,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1h-eo-AHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Yhk-Im-QRb">
+                    <connections>
+                        <action selector="tapScreen:" destination="rZ7-Zt-O7Q" id="LHe-TV-8mj"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-207" y="402"/>
         </scene>

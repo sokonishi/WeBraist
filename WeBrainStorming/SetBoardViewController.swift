@@ -13,6 +13,8 @@ import FirebaseFirestore
 class SetBoardViewController: UIViewController {
     
     var defaultStore : Firestore!
+    let user = Auth.auth().currentUser
+    let uuid = NSUUID().uuidString
     
     @IBOutlet weak var themeTextField: UITextField!
     @IBOutlet weak var detailTextField: UITextView!
@@ -29,10 +31,19 @@ class SetBoardViewController: UIViewController {
 
     @IBAction func addBoardBtn(_ sender: UIButton) {
         
+        //日付入力
+        let date = DateFormatter()
+        date.dateFormat = "yyyy/MM/dd"
+        let now = Date()
+        print(date.string(from: now)) //2017年8月13日
+        
         defaultStore.collection("DiscussionBoard").addDocument(data:[
             "ThemeOfDiscussion": themeTextField.text!,
             "DetailOfDiscussion": detailTextField.text!,
             "Lock": lockOrNot,
+            "Date": date.string(from: now),
+            "AccountID": self.user?.uid,
+            "BoardID": self.uuid
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -51,4 +62,7 @@ class SetBoardViewController: UIViewController {
         lockOrNot = 1
     }
     
+    @IBAction func tapScreen(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
 }

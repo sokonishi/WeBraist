@@ -17,13 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
+    //アプリの立ち上げ時処理
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         FirebaseApp.configure()
+        
         let db = Firestore.firestore()
         let settings = db.settings
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
+        
+        //
+        switchHomeView()
+        
         return true
     }
 
@@ -60,6 +67,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+}
 
+//2回目以降のログイン省略
+extension AppDelegate {
+    
+    func switchHomeView() {
+        let user = Auth.auth().currentUser
+        
+        let storyboard:UIStoryboard =  UIStoryboard(name: "Main",bundle:nil)
+        var viewController:UIViewController
+        
+        //表示するビューコントローラーを指定
+        if  user == nil {
+            // 未ログインの場合
+            viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as UIViewController
+        } else {
+            // ログイン済みの場合
+            viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as UIViewController
+        }
+        
+        window?.rootViewController = viewController
+    }
+    
 }
 

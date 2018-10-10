@@ -52,7 +52,10 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
                 return
             }
             print("memo:Googleログイン成功",authResult?.additionalUserInfo)
-            self.alert(memo:"Googleログイン成功\(authResult?.user.email)")
+//            self.alert(memo:"Googleログイン成功\(authResult?.user.email)")
+            
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            
         }
     }
     
@@ -91,7 +94,8 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
             }
             if let user = user {
                 print("memo:ログイン成功",user.user.email!)
-                self.alert(memo:"ログイン成功")
+//                self.alert(memo:"ログイン成功")
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }
         }
     }
@@ -105,6 +109,10 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
         //その他アラートオプション
         alert.view.layer.cornerRadius = 25 //角丸にする。
         present(alert,animated: true,completion: {()->Void in print("アラート表示")})//completionは動作完了時に発動。
+    }
+    
+    @IBAction func tapScreen(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
 }
