@@ -14,7 +14,8 @@ class SetBoardViewController: UIViewController {
     
     var defaultStore : Firestore!
     let user = Auth.auth().currentUser
-    let uuid = NSUUID().uuidString
+    
+    
     
     @IBOutlet weak var themeTextField: UITextField!
     @IBOutlet weak var detailTextField: UITextView!
@@ -31,19 +32,38 @@ class SetBoardViewController: UIViewController {
 
     @IBAction func addBoardBtn(_ sender: UIButton) {
         
+        //ランダムに変数を用意
+        let uuid = NSUUID().uuidString
+        
+        print(uuid)
+        
         //日付入力
         let date = DateFormatter()
         date.dateFormat = "yyyy/MM/dd"
         let now = Date()
         print(date.string(from: now)) //2017年8月13日
-        
-        defaultStore.collection("DiscussionBoard").addDocument(data:[
+
+        //ユーザーとボードを紐付け
+        defaultStore.collection("DiscussionBoard").document(uuid).setData([
             "ThemeOfDiscussion": themeTextField.text!,
             "DetailOfDiscussion": detailTextField.text!,
             "Lock": lockOrNot,
             "Date": date.string(from: now),
             "AccountID": self.user?.uid,
-            "BoardID": self.uuid
+            "BoardID": uuid
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+        
+        //同時にディスカッションボード用のデータの外側を作成
+        defaultStore.collection("IdeaList").document(uuid).setData([
+            "ThemeOfDiscussion": themeTextField.text!,
+            "DetailOfDiscussion": detailTextField.text!,
+            "AccountID": self.user?.uid,
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")

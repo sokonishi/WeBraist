@@ -70,7 +70,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         detailList = []
         idList = []
         
-        defaultStore.collection("DiscussionBoard").getDocuments() { (querySnapshot, err) in
+        defaultStore.collection("DiscussionBoard").whereField("AccountID", isEqualTo: user?.uid).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
