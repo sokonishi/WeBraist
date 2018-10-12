@@ -143,7 +143,11 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="HOME" id="3lt-y3-Efs">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="lP5-jr-BMf"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="lP5-jr-BMf">
+                                            <connections>
+                                                <segue destination="5YU-Gy-23k" kind="show" id="Vtw-hX-poC"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -266,6 +270,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dateLabel" destination="TFe-BN-fB0" id="NGZ-be-v11"/>
                                             <outlet property="detailLabel" destination="7ED-sW-7zd" id="Crk-qB-kOA"/>
                                             <outlet property="imageOfDiscussion" destination="m2g-FN-Wxb" id="hwa-PD-Phn"/>
                                             <outlet property="themeLabel" destination="v70-8q-GCQ" id="iFA-Fu-87K"/>
@@ -655,4 +660,7 @@
         <image name="unLockIcon" width="268" height="228"/>
         <image name="スクリーンショット 2018-10-05 13.03.17.png" width="750" height="1334"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="BdJ-vG-WQW"/>
+    </inferredMetricsTieBreakers>
 </document>

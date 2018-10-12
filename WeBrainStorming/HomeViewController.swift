@@ -20,6 +20,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var themeList:[String] = []
     var detailList:[String] = []
     var idList:[String] = []
+    var boardId:[String] = []
+    var dateList:[String] = []
     let user = Auth.auth().currentUser
     
     override func viewDidLoad() {
@@ -33,6 +35,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         themeList = []
         detailList = []
         idList = []
+        boardId = []
+        dateList = []
         
         //リロードで更新のやつ
         discussionTableView.refreshControl = refreshControl
@@ -48,14 +52,25 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     self.idList.append(document.documentID)
                     self.themeList.append(document.data()["ThemeOfDiscussion"] as! String)
                     self.detailList.append(document.data()["DetailOfDiscussion"] as! String)
+                    self.boardId.append(document.data()["BoardID"] as! String)
+                    self.dateList.append(document.data()["Date"] as! String)
                 }
+                print(self.themeList)
+                print(self.detailList)
+                
+                
+                print(self.themeList.count)
+                print(self.detailList.count)
                 self.discussionTableView.reloadData()
             }
         }
         
-        print(themeList)
+        print("sss",themeList)
         print(detailList)
-        print(idList)
+
+        
+        print(themeList.count)
+        print(detailList.count)
         
         print("ここから")
         print(user?.uid)
@@ -69,6 +84,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         themeList = []
         detailList = []
         idList = []
+        boardId = []
+        dateList = []
         
         defaultStore.collection("DiscussionBoard").whereField("AccountID", isEqualTo: user?.uid).getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -79,7 +96,11 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     self.idList.append(document.documentID)
                     self.themeList.append(document.data()["ThemeOfDiscussion"] as! String)
                     self.detailList.append(document.data()["DetailOfDiscussion"] as! String)
+                    self.boardId.append(document.data()["BoardID"] as! String)
+                    self.dateList.append(document.data()["Date"] as! String)
                 }
+                print("test:リロード")
+                print("test:テーマの数",self.themeList.count)
                 self.discussionTableView.reloadData()
             }
         }
@@ -89,18 +110,37 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("test:セルの数")
+        print("test:テーマの数2",self.themeList.count)
         return themeList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        print("test:インデックスパス")
+        print(indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: "boardCell") as! CustomTableViewCell
         
         //セルにテキストを代入
         cell.imageOfDiscussion.image = UIImage(named: "mindmap.jpg")
         cell.themeLabel.text = themeList[indexPath.row]
         cell.detailLabel.text = detailList[indexPath.row]
+        cell.dateLabel.text = dateList[indexPath.row]
         
         return cell
+    }
+    
+    //ボタンが押されたのを検知したときの処理
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nextBoardId = boardId[indexPath.row]
+        performSegue(withIdentifier: "toBoard", sender: nextBoardId)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toBoard" {
+            let addVC = segue.destination as! DiscussionBoardViewController
+            addVC.boardID = sender as! String
+        }
     }
 
 }

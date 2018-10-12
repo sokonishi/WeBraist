@@ -13,6 +13,8 @@ class DiscussionBoardViewController: UIViewController {
     
     var defaultStore : Firestore!
     
+    var boardID : String!
+    
     @IBOutlet var discussionBoard: UIView!
     @IBOutlet var insertPop: UIView!
     @IBOutlet var detailPop: UIView!
@@ -55,6 +57,8 @@ class DiscussionBoardViewController: UIViewController {
 
         defaultStore = Firestore.firestore()
         
+        print(boardID)
+        
         longGesture = UILongPressGestureRecognizer(target: self, action: #selector(DiscussionBoardViewController.longPress(_:)))
         longGesture.minimumPressDuration = 0.5
         view.addGestureRecognizer(longGesture)
@@ -78,11 +82,11 @@ class DiscussionBoardViewController: UIViewController {
     @objc func changeColor(sender: UIButton) { // buttonの色を変化させるメソッド
         print("ボタン押された",sender.tag)
         ideaColor = sender.tag
-        print(ideaColor)
+//        print(ideaColor)
     }
     
     @IBAction func insertBtn(_ sender: UIButton) {
-        print(ideaColor)
+//        print(ideaColor)
         
         //===============Firebaseにデータを保存===========================
         defaultStore.collection("IdeaList").addDocument(data:[
@@ -105,7 +109,7 @@ class DiscussionBoardViewController: UIViewController {
         
         self.insertPop.removeFromSuperview()
         
-        print(textLabelList)
+//        print(textLabelList)
     }
     
     
@@ -191,6 +195,7 @@ class DiscussionBoardViewController: UIViewController {
         detailPop.center = self.view.center
         themeField.text = textLabelList[taptag - 1].text
         detailView.text = detailList[taptag - 1]
+        detailPop.backgroundColor = buttonColorList[ideaColorList[taptag - 1]]
         for i in 0...self.buttonColorList.count-1 {
             let buttonColor = UIButton()
             buttonColor.frame = CGRect(x:26 + i * 27, y:120,
@@ -206,9 +211,9 @@ class DiscussionBoardViewController: UIViewController {
         
         //保存処理
         self.defaultStore.collection("IdeaList").document(self.idList[taptag - 1]).setData([
-            "Theme": textLabelList[taptag - 1].text!,
+            "Theme": themeField.text!,
             "Detail": detailView.text!,
-            "TextColor": ideaColorList[taptag - 1],
+            "TextColor": ideaColor,
             "X": xList[taptag - 1],
             "Y": yList[taptag - 1]
         ]) { err in

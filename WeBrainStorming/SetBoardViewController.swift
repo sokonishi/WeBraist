@@ -35,7 +35,7 @@ class SetBoardViewController: UIViewController {
         //ランダムに変数を用意
         let uuid = NSUUID().uuidString
         
-        print(uuid)
+//        print(uuid)
         
         //日付入力
         let date = DateFormatter()

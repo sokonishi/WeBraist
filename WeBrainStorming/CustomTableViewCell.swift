@@ -13,6 +13,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var imageOfDiscussion: UIImageView!
     @IBOutlet weak var themeLabel: UILabel!
     @IBOutlet weak var detailLabel: UITextView!
+    @IBOutlet weak var dateLabel: UILabel!
     
     
     override func awakeFromNib() {
