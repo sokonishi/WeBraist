@@ -15,8 +15,6 @@ class SetBoardViewController: UIViewController {
     var defaultStore : Firestore!
     let user = Auth.auth().currentUser
     
-    
-    
     @IBOutlet weak var themeTextField: UITextField!
     @IBOutlet weak var detailTextField: UITextView!
     
@@ -25,6 +23,14 @@ class SetBoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         defaultStore = Firestore.firestore()
+        
+        themeTextField.layer.borderWidth = 1
+        themeTextField.layer.borderColor = UIColor.lightGray.cgColor
+        themeTextField.layer.cornerRadius = 5
+        
+        detailTextField.layer.borderWidth = 1
+        detailTextField.layer.borderColor = UIColor.lightGray.cgColor
+        detailTextField.layer.cornerRadius = 5
         
         lockOrNot = 0
 
@@ -61,9 +67,13 @@ class SetBoardViewController: UIViewController {
         
         //同時にディスカッションボード用のデータの外側を作成
         defaultStore.collection("IdeaList").document(uuid).setData([
-            "ThemeOfDiscussion": themeTextField.text!,
-            "DetailOfDiscussion": detailTextField.text!,
+            "Theme": themeTextField.text!,
+            "Detail": detailTextField.text!,
+            "TextColor": 0,
             "AccountID": self.user?.uid,
+            "BoardID": uuid,
+            "X": self.view.frame.width/2,
+            "Y": self.view.frame.height/2
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")

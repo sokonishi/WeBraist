@@ -15,6 +15,7 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
