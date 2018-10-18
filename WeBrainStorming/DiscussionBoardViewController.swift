@@ -59,8 +59,6 @@ class DiscussionBoardViewController: UIViewController {
 
         defaultStore = Firestore.firestore()
         
-        print(boardID)
-        
         longGesture = UILongPressGestureRecognizer(target: self, action: #selector(DiscussionBoardViewController.longPress(_:)))
         longGesture.minimumPressDuration = 0.5
         view.addGestureRecognizer(longGesture)
@@ -72,6 +70,7 @@ class DiscussionBoardViewController: UIViewController {
             } else {
                 for document in querySnapshot!.documents {
                     //                    print("\(document.documentID) => \(document.data())")
+                    print(document.data()["Theme"] as! String)
                     self.idList.append(document.documentID)
                     self.themeList.append(document.data()["Theme"] as! String)
                     self.detailList.append(document.data()["Detail"] as! String)

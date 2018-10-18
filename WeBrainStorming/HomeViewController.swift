@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
-class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,CellButtonDelegate{
 
     var defaultStore : Firestore!
     @IBOutlet weak var discussionTableView: UITableView!
@@ -43,6 +43,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         refreshControl.addTarget(self, action: #selector(HomeViewController.refresh(sender:)), for: .valueChanged)
         
         //getDocumentsは取ってくる
+        //.order(by: "Date", descending: true)
         defaultStore.collection("DiscussionBoard").whereField("AccountID", isEqualTo: user?.uid).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -55,25 +56,24 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     self.boardId.append(document.data()["BoardID"] as! String)
                     self.dateList.append(document.data()["Date"] as! String)
                 }
-                print(self.themeList)
-                print(self.detailList)
-                
-                
-                print(self.themeList.count)
-                print(self.detailList.count)
+//                print(self.themeList)
+//                print(self.detailList)
+//
+//
+//                print(self.themeList.count)
+//                print(self.detailList.count)
                 self.discussionTableView.reloadData()
             }
         }
-        
-        print("sss",themeList)
-        print(detailList)
-
-        
-        print(themeList.count)
-        print(detailList.count)
-        
-        print("ここから")
-        print(user?.uid)
+//        print("sss",themeList)
+//        print(detailList)
+//
+//
+//        print(themeList.count)
+//        print(detailList.count)
+//
+//        print("ここから")
+//        print(user?.uid)
     }
     
     //リロードで更新のやつ
@@ -87,7 +87,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         boardId = []
         dateList = []
         
-        defaultStore.collection("DiscussionBoard").whereField("AccountID", isEqualTo: user?.uid).getDocuments() { (querySnapshot, err) in
+        defaultStore.collection("DiscussionBoard").whereField("AccountID", isEqualTo: user?.uid).order(by: "Date").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -110,8 +110,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("test:セルの数")
-        print("test:テーマの数2",self.themeList.count)
+//        print("test:セルの数")
+//        print("test:テーマの数2",self.themeList.count)
         return themeList.count
     }
     
@@ -126,7 +126,9 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.themeLabel.text = themeList[indexPath.row]
         cell.detailLabel.text = detailList[indexPath.row]
         cell.dateLabel.text = dateList[indexPath.row]
-        
+        cell.indexPath = indexPath
+        cell.boardId = boardId[indexPath.row]
+        cell.delegate = self
         return cell
     }
     
@@ -135,11 +137,19 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         let nextBoardId = boardId[indexPath.row]
         performSegue(withIdentifier: "toBoard", sender: nextBoardId)
     }
+
+    func goNext(_ Id:String) {
+        performSegue(withIdentifier: "toEditBoard", sender: Id)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toBoard" {
             let addVC = segue.destination as! DiscussionBoardViewController
             addVC.boardID = sender as! String
+        }
+        if segue.identifier == "toEditBoard" {
+            let addVC2 = segue.destination as! EditBoardViewController
+            addVC2.boardID = sender as! String
         }
     }
 
