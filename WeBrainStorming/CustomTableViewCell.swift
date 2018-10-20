@@ -18,6 +18,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var themeLabel: UILabel!
     @IBOutlet weak var detailLabel: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var keyMark: UIButton!
     
     var indexPath = IndexPath()
     var boardId: String!

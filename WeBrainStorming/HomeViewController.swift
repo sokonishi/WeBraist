@@ -22,6 +22,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var idList:[String] = []
     var boardId:[String] = []
     var dateList:[String] = []
+    var lockList:[Int] = []
     let user = Auth.auth().currentUser
     
     override func viewDidLoad() {
@@ -37,6 +38,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         idList = []
         boardId = []
         dateList = []
+        lockList = []
         
         //リロードで更新のやつ
         discussionTableView.refreshControl = refreshControl
@@ -55,25 +57,11 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     self.detailList.append(document.data()["DetailOfDiscussion"] as! String)
                     self.boardId.append(document.data()["BoardID"] as! String)
                     self.dateList.append(document.data()["Date"] as! String)
+                    self.lockList.append(document.data()["Lock"] as! Int)
                 }
-//                print(self.themeList)
-//                print(self.detailList)
-//
-//
-//                print(self.themeList.count)
-//                print(self.detailList.count)
                 self.discussionTableView.reloadData()
             }
         }
-//        print("sss",themeList)
-//        print(detailList)
-//
-//
-//        print(themeList.count)
-//        print(detailList.count)
-//
-//        print("ここから")
-//        print(user?.uid)
     }
     
     //リロードで更新のやつ
@@ -129,13 +117,17 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.indexPath = indexPath
         cell.boardId = boardId[indexPath.row]
         cell.delegate = self
+        if lockList[indexPath.row] == 1 {
+            cell.keyMark.isHidden = true
+        }
         return cell
     }
     
     //ボタンが押されたのを検知したときの処理
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let nextBoardId = boardId[indexPath.row]
-        performSegue(withIdentifier: "toBoard", sender: nextBoardId)
+//        let nextBoardId = boardId[indexPath.row]
+//        var nextBoard:[String] = [nextBoardId,themeList[indexPath.row]]
+        performSegue(withIdentifier: "toBoard", sender: nil)
     }
 
     func goNext(_ Id:String) {
@@ -143,13 +135,23 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toBoard" {
-            let addVC = segue.destination as! DiscussionBoardViewController
-            addVC.boardID = sender as! String
-        }
+//        if segue.identifier == "toBoard" {
+//            let addVC = segue.destination as! DiscussionBoardViewController
+//            addVC.nextBoard = [sender as! String]
+//        }
         if segue.identifier == "toEditBoard" {
             let addVC2 = segue.destination as! EditBoardViewController
             addVC2.boardID = sender as! String
+        }
+        if let indexPath = self.discussionTableView.indexPathForSelectedRow{
+            let boardID = self.boardId[indexPath.row]
+            let boardTheme = self.themeList[indexPath.row]
+            //遷移先のViewControllerを格納
+            let controller = segue.destination as! DiscussionBoardViewController
+            
+            //遷移先の変数に代入
+            controller.boardID = boardID
+            controller.boardTheme = boardTheme
         }
     }
 

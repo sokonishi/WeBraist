@@ -11,6 +11,7 @@ import UIKit
 class IdeaTableViewCell: UITableViewCell {
     
     @IBOutlet weak var ideaThemelabel: UILabel!
+    var boardId: String!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -14,6 +14,7 @@ class DiscussionBoardViewController: UIViewController {
     var defaultStore : Firestore!
     
     var boardID : String!
+    var boardTheme : String!
     
     @IBOutlet var discussionBoard: UIView!
     @IBOutlet var insertPop: UIView!
@@ -23,7 +24,11 @@ class DiscussionBoardViewController: UIViewController {
     @IBOutlet weak var themeField: UITextField!
     @IBOutlet weak var detailView: UITextView!
     @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var boardView: UIView!
+    @IBOutlet weak var themeLabel: UILabel!
     
+    @IBOutlet weak var xLocation: NSLayoutConstraint!
+    @IBOutlet weak var yLocation: NSLayoutConstraint!
     
     var longGesture = UILongPressGestureRecognizer()
     var startTransform:CGAffineTransform!
@@ -37,6 +42,7 @@ class DiscussionBoardViewController: UIViewController {
     var infoList:[String] = []
     var xList:[CGFloat] = []
     var yList:[CGFloat] = []
+//    var nextBoard:[String] = []
     
     //カラー関係
     var buttonColorList:[UIColor] = [UIColor.black,UIColor.blue,UIColor.brown,UIColor.cyan,UIColor.green,UIColor.magenta,UIColor.orange,UIColor.purple,UIColor.red,UIColor.yellow]
@@ -44,6 +50,7 @@ class DiscussionBoardViewController: UIViewController {
     //firebaseから取ってくる様
     var ideaColorList:[Int] = []
     var colorNum = Int()
+    let coverButton = UILabel()
     
     var listCount:Int = 0
     var tag:Int = 1
@@ -62,6 +69,18 @@ class DiscussionBoardViewController: UIViewController {
         longGesture = UILongPressGestureRecognizer(target: self, action: #selector(DiscussionBoardViewController.longPress(_:)))
         longGesture.minimumPressDuration = 0.5
         view.addGestureRecognizer(longGesture)
+        
+        boardView.frame = CGRect(x: -800, y: -700, width: 2000, height: 2000)
+        boardView.center = self.view.center
+        
+        themeLabel.text = boardTheme
+        themeLabel.frame = CGRect(x:((self.view.bounds.width-240)/2),y:((self.view.bounds.height-60)/2),width:240,height:45)
+        themeLabel.textAlignment = NSTextAlignment.center
+        themeLabel.backgroundColor = UIColor.lightGray
+        themeLabel.textColor = UIColor.white
+        themeLabel.layer.cornerRadius = 7
+        themeLabel.clipsToBounds = true
+        themeLabel.font = UIFont.systemFont(ofSize: 18)
         
         //getDocumentsは取ってくる
         defaultStore.collection("IdeaList").whereField("BoardID", isEqualTo: boardID).getDocuments() { (querySnapshot, err) in
@@ -85,7 +104,7 @@ class DiscussionBoardViewController: UIViewController {
             
             //UILabel削除
             if self.themeList.count != 0 {
-                for text in self.view.subviews{
+                for text in self.boardView.subviews{
                     if text is UILabel {
                         text.removeFromSuperview()
                     }
@@ -95,7 +114,7 @@ class DiscussionBoardViewController: UIViewController {
             //Labelとして表示
             if self.themeList.count != 0 {
                 for i in 0...self.themeList.count-1 {
-                    var getLabel = UILabel(frame: CGRect(x: self.xList[i], y: self.yList[i], width: 160, height: 60))
+                    var getLabel = UILabel(frame: CGRect(x: self.xList[i], y: self.yList[i], width: 160, height: 45))
                     getLabel.text = self.themeList[i]
                     getLabel.textAlignment = NSTextAlignment.center
                     // getLabel.backgroundColor = UIColor.red
@@ -115,7 +134,7 @@ class DiscussionBoardViewController: UIViewController {
                     self.textLabelList.append(getLabel)
                     //ビューに追加
                     for text in self.textLabelList{
-                        self.view.addSubview(text)
+                        self.boardView.addSubview(text)
                     }
                 }
             }
@@ -126,6 +145,8 @@ class DiscussionBoardViewController: UIViewController {
     @IBAction func add(_ sender: UIButton) {
         self.view.addSubview(insertPop)
         insertPop.center = self.view.center
+        insertPop.layer.cornerRadius = 5
+        insertPop.layer.masksToBounds = true
         //      色指定buttonの生成
         for i in 0...self.buttonColorList.count-1 {
             let buttonColor = UIButton()
@@ -140,8 +161,26 @@ class DiscussionBoardViewController: UIViewController {
     
     @objc func changeColor(sender: UIButton) { // buttonの色を変化させるメソッド
         print("ボタン押された",sender.tag)
+        coverButton.removeFromSuperview()
         ideaColor = sender.tag
-//        print(ideaColor)
+        let num = sender.tag
+        coverButton.frame = CGRect(x:26 + num * 27, y:120,
+                                   width:25, height:25)
+        coverButton.backgroundColor = UIColor.white
+        coverButton.alpha = 0.7
+        self.insertPop.addSubview(coverButton)
+    }
+    
+    @objc func changeColor2(sender: UIButton) { // buttonの色を変化させるメソッド
+        print("ボタン押された",sender.tag)
+        coverButton.removeFromSuperview()
+        ideaColor = sender.tag
+        let num = sender.tag
+        coverButton.frame = CGRect(x:26 + num * 27, y:120,
+                                   width:25, height:25)
+        coverButton.backgroundColor = UIColor.white
+        coverButton.alpha = 0.7
+        self.detailPop.addSubview(coverButton)
     }
     
     @IBAction func insertBtn(_ sender: UIButton) {
@@ -153,8 +192,8 @@ class DiscussionBoardViewController: UIViewController {
             "Detail": textView.text!,
             "TextColor": ideaColor,
             "BoardID":boardID,
-            "X":100,
-            "Y":100
+            "X":800,
+            "Y":800
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -168,18 +207,14 @@ class DiscussionBoardViewController: UIViewController {
         // getLabel.center = CGPoint(x: view.center.x, y: view.center.y + 100)
         
         self.insertPop.removeFromSuperview()
-        
-//        print(textLabelList)
-    }
-    
-    
-    @IBAction func reload(_ sender: UIButton) {
+
         
         //=====================関数でまとめる=============================
         //番号リセット
         taptag = 1
         tag = 1
         
+        print("Reload:空にする")
         //データベースから取り出す
         textLabelList = []
         themeList = []
@@ -210,7 +245,7 @@ class DiscussionBoardViewController: UIViewController {
             
             //UILabel削除
             if self.themeList.count != 0 {
-                for text in self.view.subviews{
+                for text in self.boardView.subviews{
                     if text is UILabel {
                         text.removeFromSuperview()
                     }
@@ -220,7 +255,7 @@ class DiscussionBoardViewController: UIViewController {
             //Labelとして表示
             if self.themeList.count != 0 {
                 for i in 0...self.themeList.count-1 {
-                    var getLabel = UILabel(frame: CGRect(x: self.xList[i], y: self.yList[i], width: 160, height: 60))
+                    var getLabel = UILabel(frame: CGRect(x: self.xList[i], y: self.yList[i], width: 160, height: 45))
                     getLabel.text = self.themeList[i]
                     getLabel.textAlignment = NSTextAlignment.center
                     // getLabel.backgroundColor = UIColor.red
@@ -239,7 +274,82 @@ class DiscussionBoardViewController: UIViewController {
                     self.textLabelList.append(getLabel)
                     //ビューに追加
                     for text in self.textLabelList{
-                        self.view.addSubview(text)
+                        self.boardView.addSubview(text)
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    @IBAction func reload(_ sender: UIButton) {
+        
+        //=====================関数でまとめる=============================
+        //番号リセット
+        taptag = 1
+        tag = 1
+        
+        print("Reload:空にする")
+        //データベースから取り出す
+        textLabelList = []
+        themeList = []
+        detailList = []
+        ideaColorList = []
+        idList = []
+        xList = []
+        yList = []
+        
+        //getDocumentsは取ってくる
+        defaultStore.collection("IdeaList").whereField("BoardID", isEqualTo: boardID).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    //                    print("\(document.documentID) => \(document.data())")
+                    self.idList.append(document.documentID)
+                    self.themeList.append(document.data()["Theme"] as! String)
+                    self.detailList.append(document.data()["Detail"] as! String)
+                    self.ideaColorList.append(document.data()["TextColor"] as! Int)
+                    //                    print(document.data()["X"])
+                    self.xList.append(document.data()["X"] as! CGFloat)
+                    self.yList.append(document.data()["Y"] as! CGFloat)
+                    //                    print(self.themeList)
+                }
+                print(self.ideaColorList)
+            }
+            
+            //UILabel削除
+            if self.themeList.count != 0 {
+                for text in self.boardView.subviews{
+                    if text is UILabel {
+                        text.removeFromSuperview()
+                    }
+                }
+            }
+            
+            //Labelとして表示
+            if self.themeList.count != 0 {
+                for i in 0...self.themeList.count-1 {
+                    var getLabel = UILabel(frame: CGRect(x: self.xList[i], y: self.yList[i], width: 160, height: 45))
+                    getLabel.text = self.themeList[i]
+                    getLabel.textAlignment = NSTextAlignment.center
+                    // getLabel.backgroundColor = UIColor.red
+                    getLabel.textColor = self.buttonColorList[self.ideaColorList[i]]
+                    getLabel.layer.borderColor = self.buttonColorList[self.ideaColorList[i]].cgColor
+                    getLabel.backgroundColor = UIColor.white
+                    getLabel.layer.borderWidth = 3
+                    getLabel.layer.cornerRadius = 10
+                    getLabel.layer.masksToBounds = true
+                    // ユーザーの操作を有効にする
+                    getLabel.isUserInteractionEnabled = true
+                    // タッチしたものがlabelかどうかを判別する用のタグ
+                    getLabel.tag = self.tag
+                    self.tag += 1
+                    //配列に追加
+                    self.textLabelList.append(getLabel)
+                    //ビューに追加
+                    for text in self.textLabelList{
+                        self.boardView.addSubview(text)
                     }
                 }
             }
@@ -255,6 +365,8 @@ class DiscussionBoardViewController: UIViewController {
         //        print(textLabelList[taptag - 1].detail)
         self.view.addSubview(detailPop)
         detailPop.center = self.view.center
+        detailPop.layer.cornerRadius = 5
+        detailPop.layer.masksToBounds = true
         themeField.text = textLabelList[taptag - 1].text
         detailView.text = detailList[taptag - 1]
         detailPop.backgroundColor = buttonColorList[ideaColorList[taptag - 1]]
@@ -264,7 +376,7 @@ class DiscussionBoardViewController: UIViewController {
                                        width:25, height:25)
             buttonColor.backgroundColor = self.buttonColorList[i]
             buttonColor.tag = i
-            buttonColor.addTarget(self, action: #selector(DiscussionBoardViewController.changeColor(sender:)), for: .touchUpInside)
+            buttonColor.addTarget(self, action: #selector(DiscussionBoardViewController.changeColor2(sender:)), for: .touchUpInside)
             self.detailPop.addSubview(buttonColor)
         }
     }
@@ -292,6 +404,8 @@ class DiscussionBoardViewController: UIViewController {
         taptag = 1
         tag = 1
         
+        
+        print("Edit:空にする")
         //データベースから取り出す
         textLabelList = []
         themeList = []
@@ -322,7 +436,7 @@ class DiscussionBoardViewController: UIViewController {
             
             //UILabel削除
             if self.themeList.count != 0 {
-                for text in self.view.subviews{
+                for text in self.boardView.subviews{
                     if text is UILabel {
                         text.removeFromSuperview()
                     }
@@ -332,7 +446,7 @@ class DiscussionBoardViewController: UIViewController {
             //Labelとして表示
             if self.themeList.count != 0 {
                 for i in 0...self.themeList.count-1 {
-                    var getLabel = UILabel(frame: CGRect(x: self.xList[i], y: self.yList[i], width: 160, height: 60))
+                    var getLabel = UILabel(frame: CGRect(x: self.xList[i], y: self.yList[i], width: 160, height: 45))
                     getLabel.text = self.themeList[i]
                     getLabel.textAlignment = NSTextAlignment.center
                     // getLabel.backgroundColor = UIColor.red
@@ -351,7 +465,7 @@ class DiscussionBoardViewController: UIViewController {
                     self.textLabelList.append(getLabel)
                     //ビューに追加
                     for text in self.textLabelList{
-                        self.view.addSubview(text)
+                        self.boardView.addSubview(text)
                     }
                 }
             }
@@ -379,6 +493,27 @@ class DiscussionBoardViewController: UIViewController {
                     touchedView.center = CGPoint(x: touch.location(in: view).x - gapX, y: touch.location(in: view).y - gapY)
                     taptag = touchedView.tag
                 }
+                if touchedView.tag == -2 {
+//                    let move:CGPoint = sender.translation(in: discussionBoard)
+
+                    gapX = touch.location(in: view).x - touchedView.center.x
+                    gapY = touch.location(in: view).y - touchedView.center.y
+
+                    //ラベルの位置の制約に移動量を加算する。
+                    xLocation.constant += gapX
+                    yLocation.constant += gapY
+
+                    //画面表示を更新する。
+                    discussionBoard.layoutIfNeeded()
+
+                    touchedView.center = CGPoint(x: touch.location(in: view).x - gapX, y: touch.location(in: view).y - gapY)
+                    taptag = touchedView.tag
+
+                    print(xLocation)
+
+                    //移動量を0にする。
+//                    sender.setTranslation(CGPoint.zero, in:view)
+                }
             }
         }
     }
@@ -392,6 +527,9 @@ class DiscussionBoardViewController: UIViewController {
                 // tagがどれか判断する
                 if touchedView.tag >= 1 {
                     // gapX,gapYの取得は行わない
+                    touchedView.center = CGPoint(x: touch.location(in: view).x - gapX, y: touch.location(in: view).y - gapY)
+                }
+                if touchedView.tag == -2 {
                     touchedView.center = CGPoint(x: touch.location(in: view).x - gapX, y: touch.location(in: view).y - gapY)
                 }
             }
@@ -442,7 +580,7 @@ class DiscussionBoardViewController: UIViewController {
     }
     
     @IBAction func pinchLabel(_ sender: UIPinchGestureRecognizer) {
-        discussionBoard.transform = CGAffineTransform(scaleX: sender.scale, y: sender.scale)
+        boardView.transform = CGAffineTransform(scaleX: sender.scale, y: sender.scale)
     }
     
 }

@@ -59,6 +59,25 @@ class IdeaFireViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "ideaCell") as! IdeaTableViewCell
         //セルにテキストを代入
         cell.ideaThemelabel.text = themeList[indexPath.row]
+        cell.boardId = boardId[indexPath.row]
         return cell
+    }
+    
+    //ボタンが押されたのを検知したときの処理
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toIdeaBoard", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = self.ideaTableView.indexPathForSelectedRow{
+            let boardID = self.boardId[indexPath.row]
+            let boardTheme = self.themeList[indexPath.row]
+            //遷移先のViewControllerを格納
+            let controller = segue.destination as! IdeaBoardViewController
+            
+            //遷移先の変数に代入
+            controller.boardID = boardID
+            controller.boardTheme = boardTheme
+        }
     }
 }
