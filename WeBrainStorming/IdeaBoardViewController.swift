@@ -22,8 +22,7 @@ class IdeaBoardViewController: UIViewController {
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var boardView: UIView!
-    @IBOutlet weak var themeLabel: UILabel!
-    
+
     @IBOutlet weak var xLocation: NSLayoutConstraint!
     @IBOutlet weak var yLocation: NSLayoutConstraint!
     
@@ -65,17 +64,10 @@ class IdeaBoardViewController: UIViewController {
         longGesture.minimumPressDuration = 0.5
         view.addGestureRecognizer(longGesture)
         
-        boardView.frame = CGRect(x: -800, y: -700, width: 2000, height: 2000)
+        boardView.frame = CGRect(x: -800, y: -700, width: 3000, height: 2000)
         boardView.center = self.view.center
-        
-        themeLabel.text = boardTheme
-        themeLabel.frame = CGRect(x:((self.view.bounds.width-240)/2),y:((self.view.bounds.height-60)/2),width:240,height:45)
-        themeLabel.textAlignment = NSTextAlignment.center
-        themeLabel.backgroundColor = UIColor.lightGray
-        themeLabel.textColor = UIColor.white
-        themeLabel.layer.cornerRadius = 7
-        themeLabel.clipsToBounds = true
-        themeLabel.font = UIFont.systemFont(ofSize: 18)
+        boardView.layer.borderColor = UIColor.lightGray.cgColor
+        boardView.layer.borderWidth = 3
         
         //getDocumentsは取ってくる
         defaultStore.collection("IdeaList").whereField("BoardID", isEqualTo: boardID).getDocuments() { (querySnapshot, err) in
@@ -133,6 +125,17 @@ class IdeaBoardViewController: UIViewController {
                     }
                 }
             }
+            
+            let themeLabel = UILabel(frame: CGRect(x:(self.boardView.bounds.width-240)/2,y:(self.boardView.bounds.height-60)/2,width:240,height:45))
+            themeLabel.text = self.boardTheme
+            themeLabel.textAlignment = NSTextAlignment.center
+            themeLabel.backgroundColor = UIColor.lightGray
+            themeLabel.textColor = UIColor.white
+            themeLabel.layer.cornerRadius = 7
+            themeLabel.clipsToBounds = true
+            themeLabel.font = UIFont.systemFont(ofSize: 18)
+            
+            self.boardView.addSubview(themeLabel)
         }
     }
     
@@ -142,13 +145,15 @@ class IdeaBoardViewController: UIViewController {
         print(tag)
         //        print(textLabelList[taptag - 1].title)
         //        print(textLabelList[taptag - 1].detail)
-        self.view.addSubview(detailPop)
-        detailPop.center = self.view.center
-        detailPop.layer.cornerRadius = 5
-        detailPop.layer.masksToBounds = true
-        textLabel.text = textLabelList[taptag - 1].text
-        textView.text = detailList[taptag - 1]
-        detailPop.backgroundColor = buttonColorList[ideaColorList[taptag - 1]]
+        if taptag >= 1 {
+            self.view.addSubview(detailPop)
+            detailPop.center = self.view.center
+            detailPop.layer.cornerRadius = 5
+            detailPop.layer.masksToBounds = true
+            textLabel.text = textLabelList[taptag - 1].text
+            textView.text = detailList[taptag - 1]
+            detailPop.backgroundColor = buttonColorList[ideaColorList[taptag - 1]]
+        }
     }
     
     // タッチした位置で最初に見つかったところにあるビューを取得してしまおうという魂胆

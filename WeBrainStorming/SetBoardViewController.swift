@@ -18,6 +18,14 @@ class SetBoardViewController: UIViewController {
     @IBOutlet weak var themeTextField: UITextField!
     @IBOutlet weak var detailTextField: UITextView!
     
+    @IBOutlet weak var lockBtn: UIButton!
+    @IBOutlet weak var unlockBtn: UIButton!
+    
+    let lock:UIImage = UIImage(named:"lockIcon")!
+    let lockBlue:UIImage = UIImage(named:"lockIconBlue")!
+    let unlock:UIImage = UIImage(named:"unLockIcon")!
+    let unlockBlue:UIImage = UIImage(named:"unLockIconBlue")!
+    
     var lockOrNot:Int!
 
     override func viewDidLoad() {
@@ -86,10 +94,20 @@ class SetBoardViewController: UIViewController {
     
     @IBAction func lock(_ sender: UIButton) {
         lockOrNot = 0
+        
+        if lockOrNot == 0 {
+            lockBtn.setImage(lockBlue, for: .normal)
+            unlockBtn.setImage(unlock, for: .normal)
+        }
     }
     
     @IBAction func unLock(_ sender: UIButton) {
         lockOrNot = 1
+        
+        if lockOrNot == 1 {
+            lockBtn.setImage(lock, for: .normal)
+            unlockBtn.setImage(unlockBlue, for: .normal)
+        }
     }
     
     @IBAction func tapScreen(_ sender: UITapGestureRecognizer) {
