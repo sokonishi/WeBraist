@@ -16,9 +16,12 @@ class IdeaFireViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     var themeList:[String] = []
     var boardId:[String] = []
+    var backgroundNumList: [Int] = []
     let user = Auth.auth().currentUser
     
     @IBOutlet weak var ideaTableView: UITableView!
+    
+    var discussionBackgroundImage = ["Bora Bora","Combi","Flare","Instagram","Intuitive Purple","JShine","Martini","Mirage","Noon to Dusk","Purpink","Rastafari","Sky","The Strain","Timber","Wedding Day Blues","Wiretap","YouTube"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,8 @@ class IdeaFireViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         ideaTableView.delegate = self
         ideaTableView.dataSource = self
+        
+        ideaTableView.tableFooterView = UIView()
         
         themeList = []
         boardId = []
@@ -39,15 +44,14 @@ class IdeaFireViewController: UIViewController,UITableViewDelegate,UITableViewDa
                     print("\(document.documentID) => \(document.data())")
                     self.themeList.append(document.data()["ThemeOfDiscussion"] as! String)
                     self.boardId.append(document.data()["BoardID"] as! String)
+                    self.backgroundNumList.append(document.data()["BackgroundNum"] as! Int)
                 }
                 self.ideaTableView.reloadData()
                 print("これ3",self.themeList)
             }
             print("これ2",self.themeList)
         }
-        
         print("これ",themeList)
-        
     }
     
     
@@ -60,6 +64,7 @@ class IdeaFireViewController: UIViewController,UITableViewDelegate,UITableViewDa
         //セルにテキストを代入
         cell.ideaThemelabel.text = themeList[indexPath.row]
         cell.boardId = boardId[indexPath.row]
+        cell.backgroundImage.image = UIImage(named: discussionBackgroundImage[backgroundNumList[indexPath.row]])
         return cell
     }
     
@@ -72,12 +77,14 @@ class IdeaFireViewController: UIViewController,UITableViewDelegate,UITableViewDa
         if let indexPath = self.ideaTableView.indexPathForSelectedRow{
             let boardID = self.boardId[indexPath.row]
             let boardTheme = self.themeList[indexPath.row]
+            let boardColorNum = self.backgroundNumList[indexPath.row]
             //遷移先のViewControllerを格納
             let controller = segue.destination as! IdeaBoardViewController
             
             //遷移先の変数に代入
             controller.boardID = boardID
             controller.boardTheme = boardTheme
+            controller.boardColorNum = boardColorNum
         }
     }
 }

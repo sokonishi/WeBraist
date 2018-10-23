@@ -14,11 +14,14 @@ protocol CellButtonDelegate {
 
 class CustomTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var boardView: UIView!
     @IBOutlet weak var imageOfDiscussion: UIImageView!
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var themeLabel: UILabel!
     @IBOutlet weak var detailLabel: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var keyMark: UIButton!
+    @IBOutlet weak var themeImageLabel: UILabel!
     
     var indexPath = IndexPath()
     var boardId: String!
@@ -29,7 +32,13 @@ class CustomTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        boardView.layer.cornerRadius = 10
+        boardView.layer.masksToBounds = true
+        
+        themeImageLabel.center = imageOfDiscussion.center
+        
+        detailLabel.isEditable = false
     }
 
     @IBAction func settingBtn(_ sender: UIButton) {
@@ -39,14 +48,6 @@ class CustomTableViewCell: UITableViewCell {
 
         //print(indexPath.row)
     }
-    
-    
-//    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toEditBoard" {
-//            let addVC2 = segue.destination as! EditBoardViewController
-//            addVC2.boardID = sender as! String
-//        }
-//    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

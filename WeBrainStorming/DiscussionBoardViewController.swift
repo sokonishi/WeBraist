@@ -15,6 +15,7 @@ class DiscussionBoardViewController: UIViewController {
     
     var boardID : String!
     var boardTheme : String!
+    var boardColorNum : Int!
     
     @IBOutlet var discussionBoard: UIView!
     @IBOutlet var insertPop: UIView!
@@ -45,6 +46,8 @@ class DiscussionBoardViewController: UIViewController {
     var yList:[CGFloat] = []
 //    var nextBoard:[String] = []
     
+    var discussionBackgroundImage = ["Bora Bora","Combi","Flare","Instagram","Intuitive Purple","JShine","Martini","Mirage","Noon to Dusk","Purpink","Rastafari","Sky","The Strain","Timber","Wedding Day Blues","Wiretap","YouTube"]
+    
     //カラー関係
     var buttonColorList:[UIColor] = [UIColor.black,UIColor.blue,UIColor.brown,UIColor.cyan,UIColor.green,UIColor.magenta,UIColor.orange,UIColor.purple,UIColor.red,UIColor.yellow]
     var ideaColor:Int = 0
@@ -74,7 +77,15 @@ class DiscussionBoardViewController: UIViewController {
         boardView.frame = CGRect(x: -800, y: -700, width: 3000, height: 2000)
         boardView.center = self.view.center
         boardView.layer.borderColor = UIColor.lightGray.cgColor
+        boardView.backgroundColor = UIColor.clear
         boardView.layer.borderWidth = 3
+        
+        let backgroundImage = UIImageView(frame: CGRect(x: -800, y: -700, width: 3000, height: 2000))
+        backgroundImage.center = self.view.center
+        backgroundImage.image = UIImage(named: discussionBackgroundImage[boardColorNum])
+        backgroundImage.alpha = 0.3
+        backgroundImage.layer.zPosition = -1
+        self.view.addSubview(backgroundImage)
         
         //getDocumentsは取ってくる
         defaultStore.collection("IdeaList").whereField("BoardID", isEqualTo: boardID).getDocuments() { (querySnapshot, err) in
@@ -112,9 +123,15 @@ class DiscussionBoardViewController: UIViewController {
                     getLabel.text = self.themeList[i]
                     getLabel.textAlignment = NSTextAlignment.center
                     // getLabel.backgroundColor = UIColor.red
-                    getLabel.textColor = self.buttonColorList[self.ideaColorList[i]]
-                    getLabel.layer.borderColor = self.buttonColorList[self.ideaColorList[i]].cgColor
-                    getLabel.backgroundColor = UIColor.white
+                    if self.detailList[i] != "" {
+                        getLabel.textColor = UIColor.white
+                        getLabel.layer.borderColor = self.buttonColorList[self.ideaColorList[i]].cgColor
+                        getLabel.backgroundColor = self.buttonColorList[self.ideaColorList[i]]
+                    } else {
+                        getLabel.textColor = self.buttonColorList[self.ideaColorList[i]]
+                        getLabel.layer.borderColor = self.buttonColorList[self.ideaColorList[i]].cgColor
+                        getLabel.backgroundColor = UIColor.white
+                    }
                     getLabel.layer.borderWidth = 3
                     getLabel.layer.cornerRadius = 10
                     getLabel.layer.masksToBounds = true
@@ -172,7 +189,7 @@ class DiscussionBoardViewController: UIViewController {
             "Detail": textView.text!,
             "TextColor": ideaColor,
             "BoardID":boardID,
-            "X":800,
+            "X":1400,
             "Y":800
         ]) { err in
             if let err = err {
@@ -239,9 +256,15 @@ class DiscussionBoardViewController: UIViewController {
                     getLabel.text = self.themeList[i]
                     getLabel.textAlignment = NSTextAlignment.center
                     // getLabel.backgroundColor = UIColor.red
-                    getLabel.textColor = self.buttonColorList[self.ideaColorList[i]]
-                    getLabel.layer.borderColor = self.buttonColorList[self.ideaColorList[i]].cgColor
-                    getLabel.backgroundColor = UIColor.white
+                    if self.detailList[i] != "" {
+                        getLabel.textColor = UIColor.white
+                        getLabel.layer.borderColor = self.buttonColorList[self.ideaColorList[i]].cgColor
+                        getLabel.backgroundColor = self.buttonColorList[self.ideaColorList[i]]
+                    } else {
+                        getLabel.textColor = self.buttonColorList[self.ideaColorList[i]]
+                        getLabel.layer.borderColor = self.buttonColorList[self.ideaColorList[i]].cgColor
+                        getLabel.backgroundColor = UIColor.white
+                    }
                     getLabel.layer.borderWidth = 3
                     getLabel.layer.cornerRadius = 10
                     getLabel.layer.masksToBounds = true
@@ -324,9 +347,15 @@ class DiscussionBoardViewController: UIViewController {
                     getLabel.text = self.themeList[i]
                     getLabel.textAlignment = NSTextAlignment.center
                     // getLabel.backgroundColor = UIColor.red
-                    getLabel.textColor = self.buttonColorList[self.ideaColorList[i]]
-                    getLabel.layer.borderColor = self.buttonColorList[self.ideaColorList[i]].cgColor
-                    getLabel.backgroundColor = UIColor.white
+                    if self.detailList[i] != "" {
+                        getLabel.textColor = UIColor.white
+                        getLabel.layer.borderColor = self.buttonColorList[self.ideaColorList[i]].cgColor
+                        getLabel.backgroundColor = self.buttonColorList[self.ideaColorList[i]]
+                    } else {
+                        getLabel.textColor = self.buttonColorList[self.ideaColorList[i]]
+                        getLabel.layer.borderColor = self.buttonColorList[self.ideaColorList[i]].cgColor
+                        getLabel.backgroundColor = UIColor.white
+                    }
                     getLabel.layer.borderWidth = 3
                     getLabel.layer.cornerRadius = 10
                     getLabel.layer.masksToBounds = true
@@ -462,9 +491,15 @@ class DiscussionBoardViewController: UIViewController {
                         getLabel.text = self.themeList[i]
                         getLabel.textAlignment = NSTextAlignment.center
                         // getLabel.backgroundColor = UIColor.red
-                        getLabel.textColor = self.buttonColorList[self.ideaColorList[i]]
-                        getLabel.layer.borderColor = self.buttonColorList[self.ideaColorList[i]].cgColor
-                        getLabel.backgroundColor = UIColor.white
+                        if self.detailList[i] != "" {
+                            getLabel.textColor = UIColor.white
+                            getLabel.layer.borderColor = self.buttonColorList[self.ideaColorList[i]].cgColor
+                            getLabel.backgroundColor = self.buttonColorList[self.ideaColorList[i]]
+                        } else {
+                            getLabel.textColor = self.buttonColorList[self.ideaColorList[i]]
+                            getLabel.layer.borderColor = self.buttonColorList[self.ideaColorList[i]].cgColor
+                            getLabel.backgroundColor = UIColor.white
+                        }
                         getLabel.layer.borderWidth = 3
                         getLabel.layer.cornerRadius = 10
                         getLabel.layer.masksToBounds = true
@@ -497,6 +532,10 @@ class DiscussionBoardViewController: UIViewController {
             
             self.detailPop.removeFromSuperview()
         }
+    }
+    
+    @IBAction func deleteBtn(_ sender: UIButton) {
+        self.detailPop.removeFromSuperview()
     }
     
     @objc func changeColor(sender: UIButton) { // buttonの色を変化させるメソッド

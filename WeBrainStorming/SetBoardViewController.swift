@@ -10,13 +10,14 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
-class SetBoardViewController: UIViewController {
+class SetBoardViewController: UIViewController{
     
     var defaultStore : Firestore!
     let user = Auth.auth().currentUser
     
     @IBOutlet weak var themeTextField: UITextField!
     @IBOutlet weak var detailTextField: UITextView!
+    @IBOutlet weak var participantID: UITextField!
     
     @IBOutlet weak var lockBtn: UIButton!
     @IBOutlet weak var unlockBtn: UIButton!
@@ -27,10 +28,16 @@ class SetBoardViewController: UIViewController {
     let unlockBlue:UIImage = UIImage(named:"unLockIconBlue")!
     
     var lockOrNot:Int!
+    var random: Int!
+    var boardID : String!
+    var memberID: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         defaultStore = Firestore.firestore()
+        
+        memberID = []
+//        memberID.append((self.user?.uid)!)
         
         themeTextField.layer.borderWidth = 1
         themeTextField.layer.borderColor = UIColor.lightGray.cgColor
@@ -43,13 +50,30 @@ class SetBoardViewController: UIViewController {
         lockOrNot = 0
 
     }
+    
+    @IBAction func addMember(_ sender: UIButton) {
+        
+        memberID.append(participantID.text!)
+        print(memberID)
+        
+        for i in 0 ... memberID.count-1 {
+            var memberLabel = UILabel(frame: CGRect(x:26 + i*80 , y: 300, width: 80, height: 24))
+            print("iだよ",i)
+            memberLabel.text = memberID[i]
+            self.view.addSubview(memberLabel)
+        }
+        
+    }
 
     @IBAction func addBoardBtn(_ sender: UIButton) {
         
         //ランダムに変数を用意
         let uuid = NSUUID().uuidString
+        boardID = uuid
         
-//        print(uuid)
+        //背景カラーをランダムに生成
+        random = Int(arc4random()) % 17
+        print(random)
         
         //日付入力
         let date = DateFormatter()
@@ -64,24 +88,9 @@ class SetBoardViewController: UIViewController {
             "Lock": lockOrNot,
             "Date": date.string(from: now),
             "AccountID": self.user?.uid,
-            "BoardID": uuid
-        ]) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("Document successfully written!")
-            }
-        }
-        
-        //同時にディスカッションボード用のデータの外側を作成
-        defaultStore.collection("IdeaList").document(uuid).setData([
-            "Theme": themeTextField.text!,
-            "Detail": detailTextField.text!,
-            "TextColor": 0,
-            "AccountID": self.user?.uid,
             "BoardID": uuid,
-            "X": self.view.frame.width/2,
-            "Y": self.view.frame.height/2
+            "BackgroundNum": random,
+            "MemberID": memberID
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -89,8 +98,8 @@ class SetBoardViewController: UIViewController {
                 print("Document successfully written!")
             }
         }
-        
     }
+
     
     @IBAction func lock(_ sender: UIButton) {
         lockOrNot = 0

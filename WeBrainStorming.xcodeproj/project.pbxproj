@@ -18,6 +18,10 @@
 		4821471A21673B61000CFEA7 /* SetBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821471921673B61000CFEA7 /* SetBoardViewController.swift */; };
 		4821471C2168677A000CFEA7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821471B2168677A000CFEA7 /* CustomTableViewCell.swift */; };
 		4821471E21687E9B000CFEA7 /* mindmap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4821471D21687E9B000CFEA7 /* mindmap.jpg */; };
+		48401267217C8A6A00BF5026 /* MyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48401266217C8A6A00BF5026 /* MyTabBarViewController.swift */; };
+		48401269217D35CF00BF5026 /* webraistロゴグレー.png in Resources */ = {isa = PBXBuildFile; fileRef = 48401268217D35C900BF5026 /* webraistロゴグレー.png */; };
+		4840126B217D39CC00BF5026 /* webraistロゴ太め.png in Resources */ = {isa = PBXBuildFile; fileRef = 4840126A217D39C600BF5026 /* webraistロゴ太め.png */; };
+		4840126D217D4CD200BF5026 /* webraistロゴ頭青.png in Resources */ = {isa = PBXBuildFile; fileRef = 4840126C217D4CD200BF5026 /* webraistロゴ頭青.png */; };
 		4854F5472179F8150031D60E /* IdeaBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4854F5462179F8150031D60E /* IdeaBoardViewController.swift */; };
 		486F91742173325F009E0D82 /* 無料の設定歯車アイコン.png in Resources */ = {isa = PBXBuildFile; fileRef = 486F91732173325D009E0D82 /* 無料の設定歯車アイコン.png */; };
 		486F917721733696009E0D82 /* コメントのアイコン素材 その2.png in Resources */ = {isa = PBXBuildFile; fileRef = 486F91752173368B009E0D82 /* コメントのアイコン素材 その2.png */; };
@@ -56,6 +60,10 @@
 		4821471921673B61000CFEA7 /* SetBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBoardViewController.swift; sourceTree = "<group>"; };
 		4821471B2168677A000CFEA7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		4821471D21687E9B000CFEA7 /* mindmap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mindmap.jpg; sourceTree = "<group>"; };
+		48401266217C8A6A00BF5026 /* MyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarViewController.swift; sourceTree = "<group>"; };
+		48401268217D35C900BF5026 /* webraistロゴグレー.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "webraistロゴグレー.png"; sourceTree = "<group>"; };
+		4840126A217D39C600BF5026 /* webraistロゴ太め.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "webraistロゴ太め.png"; sourceTree = "<group>"; };
+		4840126C217D4CD200BF5026 /* webraistロゴ頭青.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "webraistロゴ頭青.png"; sourceTree = "<group>"; };
 		4854F5462179F8150031D60E /* IdeaBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaBoardViewController.swift; sourceTree = "<group>"; };
 		486F91732173325D009E0D82 /* 無料の設定歯車アイコン.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "無料の設定歯車アイコン.png"; sourceTree = "<group>"; };
 		486F91752173368B009E0D82 /* コメントのアイコン素材 その2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "コメントのアイコン素材 その2.png"; sourceTree = "<group>"; };
@@ -129,6 +137,7 @@
 				4821471B2168677A000CFEA7 /* CustomTableViewCell.swift */,
 				486F91812177F892009E0D82 /* IdeaTableViewCell.swift */,
 				48B841F32160B69200FD0688 /* Main.storyboard */,
+				48401266217C8A6A00BF5026 /* MyTabBarViewController.swift */,
 				4854F5462179F8150031D60E /* IdeaBoardViewController.swift */,
 				486F917F2177E68C009E0D82 /* IdeaFireViewController.swift */,
 				48B841F62160B69600FD0688 /* Assets.xcassets */,
@@ -136,6 +145,9 @@
 				4821471521672893000CFEA7 /* スクリーンショット 2018-10-05 13.03.17.png */,
 				48B841F82160B69600FD0688 /* LaunchScreen.storyboard */,
 				4821471D21687E9B000CFEA7 /* mindmap.jpg */,
+				48401268217D35C900BF5026 /* webraistロゴグレー.png */,
+				4840126C217D4CD200BF5026 /* webraistロゴ頭青.png */,
+				4840126A217D39C600BF5026 /* webraistロゴ太め.png */,
 				48FDF4462171C9CD00EE2E60 /* カギの開いた錠のアイコン素材 3.png */,
 				486F91752173368B009E0D82 /* コメントのアイコン素材 その2.png */,
 				486F917621733691009E0D82 /* ハートのマーク3.png */,
@@ -242,13 +254,16 @@
 				482147082166C923000CFEA7 /* WebRaist.png in Resources */,
 				48B841FA2160B69600FD0688 /* LaunchScreen.storyboard in Resources */,
 				48B841F72160B69600FD0688 /* Assets.xcassets in Resources */,
+				4840126D217D4CD200BF5026 /* webraistロゴ頭青.png in Resources */,
 				48FDF44F2171D80C00EE2E60 /* プラスのアイコン素材.jpeg in Resources */,
 				486F917721733696009E0D82 /* コメントのアイコン素材 その2.png in Resources */,
 				48FDF4572171DDF000EE2E60 /* 矢印アイコン　左3.jpeg in Resources */,
 				486F917821733696009E0D82 /* ハートのマーク3.png in Resources */,
 				48B841F52160B69200FD0688 /* Main.storyboard in Resources */,
+				48401269217D35CF00BF5026 /* webraistロゴグレー.png in Resources */,
 				486F91742173325F009E0D82 /* 無料の設定歯車アイコン.png in Resources */,
 				48FDF44D2171CC4500EE2E60 /* 人物のアイコン素材 その3.png in Resources */,
+				4840126B217D39CC00BF5026 /* webraistロゴ太め.png in Resources */,
 				486F917E21776951009E0D82 /* 矢印アイコン　左4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +361,7 @@
 				48B841F22160B69200FD0688 /* ViewController.swift in Sources */,
 				48BF35AB216EAF7B000139F7 /* DiscussionBoardViewController.swift in Sources */,
 				4821471A21673B61000CFEA7 /* SetBoardViewController.swift in Sources */,
+				48401267217C8A6A00BF5026 /* MyTabBarViewController.swift in Sources */,
 				486F91822177F892009E0D82 /* IdeaTableViewCell.swift in Sources */,
 				486F917A2173E9D3009E0D82 /* EditBoardViewController.swift in Sources */,
 				48B841F02160B69200FD0688 /* AppDelegate.swift in Sources */,
@@ -500,13 +516,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q9XTVNPMDU;
 				INFOPLIST_FILE = WeBrainStorming/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.konio.WeBrainStorming;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -519,13 +536,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q9XTVNPMDU;
 				INFOPLIST_FILE = WeBrainStorming/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.konio.WeBrainStorming;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
