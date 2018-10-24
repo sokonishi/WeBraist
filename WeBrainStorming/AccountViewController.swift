@@ -18,7 +18,7 @@ class AccountViewController: UIViewController,UIImagePickerControllerDelegate, U
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var userIDField: UITextField!
     @IBOutlet weak var userImage: UIImageView!
-    @IBOutlet weak var iconImage: UIImageView!
+
     
     var userImageCode:String!
 
@@ -26,7 +26,22 @@ class AccountViewController: UIViewController,UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         defaultStore = Firestore.firestore()
         
+        userIDField.text = self.user?.uid
         
+        userImage.layer.cornerRadius = 50
+        defaultStore.collection("UserInformation").document((self.user?.uid)!).getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.userImageCode = document.data()!["UserImage"] as? String
+                self.userNameField.text = document.data()!["UserName"] as? String
+                self.userIDField.text = document.data()!["UserID"] as? String
+            } else {
+                print("Document does not exist")
+            }
+            
+            if self.userImageCode != nil {
+                self.userImage.image = self.convertStringToUiImage(stringImageData: self.userImageCode)
+            }
+        }
         
     }
     
@@ -62,8 +77,7 @@ class AccountViewController: UIViewController,UIImagePickerControllerDelegate, U
             let base64String = data.base64EncodedString(options:NSData.Base64EncodingOptions.lineLength64Characters) as String
             
             userImageCode = base64String
-            
-            iconImage.image = convertStringToUiImage(stringImageData: base64String)
+
         }
     }
     
@@ -74,32 +88,15 @@ class AccountViewController: UIViewController,UIImagePickerControllerDelegate, U
         
         //NSDataの生成が成功していたら
         if let decodeSuccess = decodeBase64 {
-            
             //NSDataからUIImageを生成
             let img = UIImage(data: decodeSuccess as Data)
             return img
             
         }
-        
         return nil
     }
     
-    @IBAction func resetPicture(_ sender: UIButton) {
-        // アラートで確認
-        let alert = UIAlertController(title: "確認", message: "画像を初期化してもよいですか？", preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "OK", style: .default, handler:{(action: UIAlertAction) -> Void in
-            // デフォルトの画像を表示する
-            self.userImage.image = UIImage(named: "スクリーンショット 2018-10-05 13.03.17.png")
-        })
-        let cancelButton = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
-        // アラートにボタン追加
-        alert.addAction(okButton)
-        alert.addAction(cancelButton)
-        // アラート表示
-        present(alert, animated: true, completion: nil)
-    }
-    
-    
+
     @IBAction func register(_ sender: UIButton) {
         
         defaultStore.collection("UserInformation").document((self.user?.uid)!).setData([

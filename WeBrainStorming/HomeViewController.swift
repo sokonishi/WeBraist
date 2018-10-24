@@ -83,7 +83,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         dateList = []
         
 //        defaultStore.collection("DiscussionBoard").whereField("AccountID", isEqualTo: user?.uid).getDocuments() { (querySnapshot, err) in
-        defaultStore.collection("DiscussionBoard").whereField("MemberID", arrayContains: "kan1998").getDocuments() { (querySnapshot, err) in
+        defaultStore.collection("DiscussionBoard").whereField("MemberID", arrayContains: "so315").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

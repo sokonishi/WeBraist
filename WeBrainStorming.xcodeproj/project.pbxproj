@@ -37,6 +37,7 @@
 		48B841F72160B69600FD0688 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B841F62160B69600FD0688 /* Assets.xcassets */; };
 		48B841FA2160B69600FD0688 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B841F82160B69600FD0688 /* LaunchScreen.storyboard */; };
 		48BF35AB216EAF7B000139F7 /* DiscussionBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF35AA216EAF7A000139F7 /* DiscussionBoardViewController.swift */; };
+		48E83F85217EF28F006C0FD7 /* 人物のアイコンBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 48E83F84217EF289006C0FD7 /* 人物のアイコンBlue.png */; };
 		48FDF4472171C9CE00EE2E60 /* カギの開いた錠のアイコン素材 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 48FDF4462171C9CD00EE2E60 /* カギの開いた錠のアイコン素材 3.png */; };
 		48FDF4492171C9D800EE2E60 /* カギの開いた錠のアイコン素材 3 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 48FDF4482171C9D800EE2E60 /* カギの開いた錠のアイコン素材 3 (1).png */; };
 		48FDF44D2171CC4500EE2E60 /* 人物のアイコン素材 その3.png in Resources */ = {isa = PBXBuildFile; fileRef = 48FDF44C2171CC4000EE2E60 /* 人物のアイコン素材 その3.png */; };
@@ -81,6 +82,7 @@
 		48B841F92160B69600FD0688 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48B841FB2160B69600FD0688 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48BF35AA216EAF7A000139F7 /* DiscussionBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscussionBoardViewController.swift; path = "/Users/konishiso/Documents/iOS アプリ/WeBrainStorming/WeBrainStorming/DiscussionBoardViewController.swift"; sourceTree = "<absolute>"; };
+		48E83F84217EF289006C0FD7 /* 人物のアイコンBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "人物のアイコンBlue.png"; sourceTree = "<group>"; };
 		48FDF4462171C9CD00EE2E60 /* カギの開いた錠のアイコン素材 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "カギの開いた錠のアイコン素材 3.png"; sourceTree = "<group>"; };
 		48FDF4482171C9D800EE2E60 /* カギの開いた錠のアイコン素材 3 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "カギの開いた錠のアイコン素材 3 (1).png"; sourceTree = "<group>"; };
 		48FDF44C2171CC4000EE2E60 /* 人物のアイコン素材 その3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "人物のアイコン素材 その3.png"; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				486F91732173325D009E0D82 /* 無料の設定歯車アイコン.png */,
 				48FDF44E2171D80600EE2E60 /* プラスのアイコン素材.jpeg */,
 				48FDF4562171DDEA00EE2E60 /* 矢印アイコン　左3.jpeg */,
+				48E83F84217EF289006C0FD7 /* 人物のアイコンBlue.png */,
 				486F917D21776951009E0D82 /* 矢印アイコン　左4.png */,
 				48FDF44C2171CC4000EE2E60 /* 人物のアイコン素材 その3.png */,
 				48B841FB2160B69600FD0688 /* Info.plist */,
@@ -265,6 +268,7 @@
 				48FDF44D2171CC4500EE2E60 /* 人物のアイコン素材 その3.png in Resources */,
 				4840126B217D39CC00BF5026 /* webraistロゴ太め.png in Resources */,
 				486F917E21776951009E0D82 /* 矢印アイコン　左4.png in Resources */,
+				48E83F85217EF28F006C0FD7 /* 人物のアイコンBlue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
