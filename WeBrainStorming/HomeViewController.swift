@@ -56,31 +56,34 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         defaultStore.collection("UserInformation").document((self.user?.uid)!).getDocument { (document, error) in
             if let document = document, document.exists {
+                
+                print("viewDidLoadの処理の中")
                 self.userId = document.data()!["UserID"] as? String
+                //getDocumentsは取ってくる
+                //.order(by: "Date", descending: true)
+                self.defaultStore.collection("DiscussionBoard").whereField("MemberID", arrayContains: self.userId).getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        for document in querySnapshot!.documents {
+                            print("\(document.documentID) => \(document.data())")
+                            self.idList.append(document.documentID)
+                            self.themeList.append(document.data()["ThemeOfDiscussion"] as! String)
+                            self.detailList.append(document.data()["DetailOfDiscussion"] as! String)
+                            self.boardId.append(document.data()["BoardID"] as! String)
+                            self.dateList.append(document.data()["Date"] as! String)
+                            self.lockList.append(document.data()["Lock"] as! Int)
+                            self.backgroundNumList.append(document.data()["BackgroundNum"] as! Int)
+                            self.memberIDList.append(document.data()["MemberID"] as! NSArray)
+                            self.boardImageCodeList.append(document.data()["BoardImageCode"] as! String)
+                        }
+                        self.discussionTableView.reloadData()
+                        //                print(self.memberIDList[0][1])
+                    }
+                }
+
             } else {
                 print("Document does not exist")
-            }
-        }
-        //getDocumentsは取ってくる
-        //.order(by: "Date", descending: true)
-        defaultStore.collection("DiscussionBoard").whereField("MemberID", isEqualTo: self.userId).getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                    self.idList.append(document.documentID)
-                    self.themeList.append(document.data()["ThemeOfDiscussion"] as! String)
-                    self.detailList.append(document.data()["DetailOfDiscussion"] as! String)
-                    self.boardId.append(document.data()["BoardID"] as! String)
-                    self.dateList.append(document.data()["Date"] as! String)
-                    self.lockList.append(document.data()["Lock"] as! Int)
-                    self.backgroundNumList.append(document.data()["BackgroundNum"] as! Int)
-                    self.memberIDList.append(document.data()["MemberID"] as! NSArray)
-                    self.boardImageCodeList.append(document.data()["BoardImageCode"] as! String)
-                }
-                self.discussionTableView.reloadData()
-                //                print(self.memberIDList[0][1])
             }
         }
     }
@@ -110,6 +113,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     self.dateList.append(document.data()["Date"] as! String)
                     self.lockList.append(document.data()["Lock"] as! Int)
                     self.backgroundNumList.append(document.data()["BackgroundNum"] as! Int)
+                    self.memberIDList.append(document.data()["MemberID"] as! NSArray)
+                    self.boardImageCodeList.append(document.data()["BoardImageCode"] as! String)
                 }
                 print("test:リロード")
                 print("test:テーマの数",self.themeList.count)
@@ -129,27 +134,41 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print("test:インデックスパス")
-        print(indexPath.row)
-        print("memberIDList",memberIDList)
-        print(memberIDList[indexPath.row])
-        print(memberIDList[indexPath.row].count)
+//        print("tableViewの頭")
+//        print("test:インデックスパス")
+//        print(indexPath.row)
+//        print("memberIDList",memberIDList)
+//        print(memberIDList[indexPath.row])
+//        print(memberIDList[indexPath.row].count)
         let cell = tableView.dequeueReusableCell(withIdentifier: "boardCell") as! CustomTableViewCell
     
         for i in 0 ... self.memberIDList[indexPath.row].count - 1 {
+            print("tableViewの処理")
+//            print(self.memberIDList[indexPath.row][i])
             defaultStore.collection("UserInformation").whereField("UserID", isEqualTo: self.memberIDList[indexPath.row][i]).getDocuments { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-                        self.iconImageCode = document.data()["UserImage"] as! String
+                        print("test:document")
+                        if document.data()["UserImage"] as? String == nil {
+                            self.iconImageCode = ""
+                        } else {
+                            self.iconImageCode = document.data()["UserImage"] as? String
+                        }
                     }
+//                    print("kkkkkkkkkkkkkkk",self.iconImageCode)
                     let iconImage = UIImageView()
-                    iconImage.image = self.convertStringToUiImage(stringImageData: self.iconImageCode)
+                    if self.iconImageCode == ""{
+                        iconImage.image = UIImage(named: "iconBlue")
+                    } else {
+                        iconImage.image = self.convertStringToUiImage(stringImageData: self.iconImageCode)
+                    }
                     iconImage.frame = CGRect(x: 22 + i*40, y: 250, width: 36, height: 36)
                     iconImage.layer.cornerRadius = 18
                     iconImage.clipsToBounds = true
                     cell.boardView.addSubview(iconImage)
+                    self.iconImageCode = ""
                 }
             }
         }
@@ -189,7 +208,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEditBoard" {
             let addVC2 = segue.destination as! EditBoardViewController
-            addVC2.boardID = sender as! String
+            addVC2.boardID = sender as? String
         }
         if let indexPath = self.discussionTableView.indexPathForSelectedRow{
             let boardID = self.boardId[indexPath.row]

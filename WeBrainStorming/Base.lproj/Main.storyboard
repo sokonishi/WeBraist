@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="0FL-zt-Mrp" appends="YES" id="COc-2d-GOP"/>
+                                    <outletCollection property="gestureRecognizers" destination="KzY-CK-qU1" appends="YES" id="to4-Wi-ejl"/>
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WeBraist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kN4-lc-s2X">
@@ -97,9 +97,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsr-7X-YC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="0FL-zt-Mrp">
+                <tapGestureRecognizer id="KzY-CK-qU1">
                     <connections>
-                        <action selector="tapScreen:" destination="leh-15-TEs" id="H4H-c7-47e"/>
+                        <action selector="tapScreen:" destination="leh-15-TEs" id="ogQ-G7-YfJ"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -318,7 +318,7 @@
                     </connections>
                 </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="837.60000000000002" y="1270.6146926536733"/>
+            <point key="canvasLocation" x="838" y="1751"/>
         </scene>
         <!--User-->
         <scene sceneID="mGe-98-zBT">
@@ -1397,6 +1397,6 @@
         <image name="矢印アイコン　左4.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SrG-9m-lN3"/>
+        <segue reference="2dt-tQ-Wmw"/>
     </inferredMetricsTieBreakers>
 </document>
