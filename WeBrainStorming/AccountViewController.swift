@@ -68,16 +68,12 @@ class AccountViewController: UIViewController,UIImagePickerControllerDelegate, U
         self.userImage.image = image
         // 写真を選ぶビューを引っ込める
         self.dismiss(animated: true)
-
         //投稿画像
         if let maxQualityImageData = userImage.image!.jpegData(compressionQuality: 0.1) {
             //画像をNSDataにキャスト
             let data:NSData = maxQualityImageData as NSData
-            
             let base64String = data.base64EncodedString(options:NSData.Base64EncodingOptions.lineLength64Characters) as String
-            
             userImageCode = base64String
-
         }
     }
     
@@ -85,18 +81,15 @@ class AccountViewController: UIViewController,UIImagePickerControllerDelegate, U
         //BASE64の文字列をデコードしてNSDataを生成
         let decodeBase64:NSData? =
             NSData(base64Encoded:stringImageData, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)
-        
         //NSDataの生成が成功していたら
         if let decodeSuccess = decodeBase64 {
             //NSDataからUIImageを生成
             let img = UIImage(data: decodeSuccess as Data)
             return img
-            
         }
         return nil
     }
     
-
     @IBAction func register(_ sender: UIButton) {
         
         defaultStore.collection("UserInformation").document((self.user?.uid)!).setData([

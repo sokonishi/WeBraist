@@ -14,6 +14,7 @@ class SetBoardViewController: UIViewController,UIImagePickerControllerDelegate, 
     
     var defaultStore : Firestore!
     let user = Auth.auth().currentUser
+    var userId: String!
     
     @IBOutlet weak var setBoardView: UIView!
     @IBOutlet weak var themeTextField: UITextField!
@@ -41,7 +42,6 @@ class SetBoardViewController: UIViewController,UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         defaultStore = Firestore.firestore()
         
-        memberID = []
 //        memberID.append((self.user?.uid)!)
         
         themeTextField.layer.borderWidth = 1
@@ -56,7 +56,27 @@ class SetBoardViewController: UIViewController,UIImagePickerControllerDelegate, 
         participantID.layer.borderColor = UIColor.lightGray.cgColor
         participantID.layer.cornerRadius = 5
         
+        boardImageCode = ""
+        
         lockOrNot = 0
+        
+        defaultStore.collection("UserInformation").document((self.user?.uid)!).getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.userId = document.data()!["UserID"] as? String
+                self.memberID.append(self.userId)
+                var userLabel: UILabel!
+                userLabel = UILabel(frame: CGRect(x:22, y: Int(self.participantID.frame.maxY) + 12, width: 107, height: 24))
+                userLabel.text = self.userId
+                userLabel.textAlignment = NSTextAlignment.center
+                userLabel.textColor = UIColor(red: 32/255, green: 194/255, blue: 212/255, alpha: 1)
+                userLabel.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
+                userLabel.layer.cornerRadius = 3
+                userLabel.layer.masksToBounds = true
+                self.setBoardView.addSubview(userLabel)
+            } else {
+                print("Document does not exist")
+            }
+        }
 
     }
 
@@ -84,7 +104,8 @@ class SetBoardViewController: UIViewController,UIImagePickerControllerDelegate, 
             "AccountID": self.user?.uid,
             "BoardID": uuid,
             "BackgroundNum": random,
-            "MemberID": memberID
+            "MemberID": memberID,
+            "BoardImageCode": boardImageCode
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -146,19 +167,19 @@ class SetBoardViewController: UIViewController,UIImagePickerControllerDelegate, 
         let checkTextframe = participantID.convert(participantID.frame, to: self.view)
         print(checkTextframe.origin.y)
         print(participantID.frame.maxY)
-        for i in 0 ... memberID.count-1 {
+        for i in 1 ... memberID.count-1 {
             var memberLabel: UILabel!
             print("iだよ",i)
-            if i >= 0 && i <= 2 {
-                memberLabel = UILabel(frame: CGRect(x:22 + i*110 , y: Int(participantID.frame.maxY) + 12, width: 105, height: 24))
+            if i >= 1 && i <= 2 {
+                memberLabel = UILabel(frame: CGRect(x:22 + i*112 , y: Int(participantID.frame.maxY) + 12, width: 107, height: 24))
             } else if i >= 3 && i <= 5{
-                memberLabel = UILabel(frame: CGRect(x:22 + (i-4)*110 , y: Int(participantID.frame.maxY) + 41, width: 105, height: 24))
+                memberLabel = UILabel(frame: CGRect(x:22 + (i-3)*112 , y: Int(participantID.frame.maxY) + 41, width: 107, height: 24))
             } else if i >= 6 && i <= 8 {
-                memberLabel = UILabel(frame: CGRect(x:22 + (i-8)*110 , y: Int(participantID.frame.maxY) + 70, width: 105, height: 24))
+                memberLabel = UILabel(frame: CGRect(x:22 + (i-6)*112 , y: Int(participantID.frame.maxY) + 70, width: 107, height: 24))
             } else if i >= 9 && i <= 11 {
-                memberLabel = UILabel(frame: CGRect(x:22 + (i-8)*110 , y: Int(participantID.frame.maxY) + 70, width: 105, height: 24))
+                memberLabel = UILabel(frame: CGRect(x:22 + (i-9)*112 , y: Int(participantID.frame.maxY) + 70, width: 107, height: 24))
             } else if i >= 12 && i <= 14 {
-                memberLabel = UILabel(frame: CGRect(x:22 + (i-8)*110 , y: Int(participantID.frame.maxY) + 70, width: 105, height: 24))
+                memberLabel = UILabel(frame: CGRect(x:22 + (i-12)*112 , y: Int(participantID.frame.maxY) + 70, width: 107, height: 24))
             } else {
                 print("多すぎ")
             }

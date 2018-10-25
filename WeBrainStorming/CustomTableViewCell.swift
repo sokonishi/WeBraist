@@ -16,7 +16,7 @@ class CustomTableViewCell: UITableViewCell {
     
     @IBOutlet weak var boardView: UIView!
     @IBOutlet weak var imageOfDiscussion: UIImageView!
-    @IBOutlet weak var backgroundImage: UIImageView!
+//    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var themeLabel: UILabel!
     @IBOutlet weak var detailLabel: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
