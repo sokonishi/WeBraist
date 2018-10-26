@@ -111,9 +111,8 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
         alert.view.layer.cornerRadius = 25 //角丸にする。
         present(alert,animated: true,completion: {()->Void in print("アラート表示")})//completionは動作完了時に発動。
     }
-    
+
     @IBAction func tapScreen(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
-    
 }
