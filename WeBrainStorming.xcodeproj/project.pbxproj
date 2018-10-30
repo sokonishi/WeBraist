@@ -17,7 +17,6 @@
 		4821471821673473000CFEA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821471721673473000CFEA7 /* HomeViewController.swift */; };
 		4821471A21673B61000CFEA7 /* SetBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821471921673B61000CFEA7 /* SetBoardViewController.swift */; };
 		4821471C2168677A000CFEA7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821471B2168677A000CFEA7 /* CustomTableViewCell.swift */; };
-		4821471E21687E9B000CFEA7 /* mindmap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4821471D21687E9B000CFEA7 /* mindmap.jpg */; };
 		48401267217C8A6A00BF5026 /* MyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48401266217C8A6A00BF5026 /* MyTabBarViewController.swift */; };
 		48401269217D35CF00BF5026 /* webraistロゴグレー.png in Resources */ = {isa = PBXBuildFile; fileRef = 48401268217D35C900BF5026 /* webraistロゴグレー.png */; };
 		4840126B217D39CC00BF5026 /* webraistロゴ太め.png in Resources */ = {isa = PBXBuildFile; fileRef = 4840126A217D39C600BF5026 /* webraistロゴ太め.png */; };
@@ -60,7 +59,6 @@
 		4821471721673473000CFEA7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4821471921673B61000CFEA7 /* SetBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBoardViewController.swift; sourceTree = "<group>"; };
 		4821471B2168677A000CFEA7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		4821471D21687E9B000CFEA7 /* mindmap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mindmap.jpg; sourceTree = "<group>"; };
 		48401266217C8A6A00BF5026 /* MyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarViewController.swift; sourceTree = "<group>"; };
 		48401268217D35C900BF5026 /* webraistロゴグレー.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "webraistロゴグレー.png"; sourceTree = "<group>"; };
 		4840126A217D39C600BF5026 /* webraistロゴ太め.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "webraistロゴ太め.png"; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 				482147072166C923000CFEA7 /* WebRaist.png */,
 				4821471521672893000CFEA7 /* スクリーンショット 2018-10-05 13.03.17.png */,
 				48B841F82160B69600FD0688 /* LaunchScreen.storyboard */,
-				4821471D21687E9B000CFEA7 /* mindmap.jpg */,
 				48401268217D35C900BF5026 /* webraistロゴグレー.png */,
 				4840126C217D4CD200BF5026 /* webraistロゴ頭青.png */,
 				4840126A217D39C600BF5026 /* webraistロゴ太め.png */,
@@ -248,7 +245,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4821471E21687E9B000CFEA7 /* mindmap.jpg in Resources */,
 				4821471621672897000CFEA7 /* スクリーンショット 2018-10-05 13.03.17.png in Resources */,
 				48FDF4472171C9CE00EE2E60 /* カギの開いた錠のアイコン素材 3.png in Resources */,
 				48FDF4512171D89B00EE2E60 /* リロードのフリーアイコン.jpeg in Resources */,

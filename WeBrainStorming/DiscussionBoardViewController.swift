@@ -48,9 +48,21 @@ class DiscussionBoardViewController: UIViewController {
     
     var discussionBackgroundImage = ["Bora Bora","Combi","Flare","Instagram","Intuitive Purple","JShine","Martini","Mirage","Noon to Dusk","Purpink","Rastafari","Sky","The Strain","Timber","Wedding Day Blues","Wiretap","YouTube"]
     
+    let lightBlue:UIColor = UIColor(red: 81/255, green: 167/255, blue: 249/255, alpha: 1)
+    let yellow:UIColor = UIColor(red: 245/255, green: 211/255, blue: 40/255, alpha: 1)
+    let pink:UIColor =  UIColor(red: 255/255, green: 47/255, blue: 146/255, alpha: 1)
+    let orange:UIColor =  UIColor(red: 243/255, green: 144/255, blue: 25/255, alpha: 1)
+    let purple:UIColor =  UIColor(red: 179/255, green: 106/255, blue: 226/255, alpha: 1)
+    let red:UIColor =  UIColor(red: 200/255, green: 37/255, blue: 6/255, alpha: 1)
+    let green:UIColor =  UIColor(red: 112/255, green: 191/255, blue: 65/255, alpha: 1)
+    let con:UIColor = UIColor(red: 22/255, green: 79/255, blue: 134/255, alpha: 1)
+    let brown:UIColor = UIColor(red: 157/255, green: 67/255, blue: 23/255, alpha: 1)
+    let greenBlue:UIColor = UIColor(red: 24/255, green: 163/255, blue: 165/255, alpha: 1)
+    
     //カラー関係
-    var buttonColorList:[UIColor] = [UIColor.black,UIColor.blue,UIColor.brown,UIColor.cyan,UIColor.green,UIColor.magenta,UIColor.orange,UIColor.purple,UIColor.red,UIColor.yellow]
+    var buttonColorList:[UIColor] = []
     var ideaColor:Int = 0
+    
     //firebaseから取ってくる様
     var ideaColorList:[Int] = []
     var colorNum = Int()
@@ -70,6 +82,8 @@ class DiscussionBoardViewController: UIViewController {
 
         defaultStore = Firestore.firestore()
         
+        buttonColorList = [lightBlue,yellow,pink,orange,purple,red,green,con,brown,greenBlue]
+        
         longGesture = UILongPressGestureRecognizer(target: self, action: #selector(DiscussionBoardViewController.longPress(_:)))
         longGesture.minimumPressDuration = 0.5
         view.addGestureRecognizer(longGesture)
@@ -77,7 +91,7 @@ class DiscussionBoardViewController: UIViewController {
         boardView.frame = CGRect(x: -800, y: -700, width: 3000, height: 2000)
         boardView.center = self.view.center
         boardView.layer.borderColor = UIColor.lightGray.cgColor
-        boardView.backgroundColor = UIColor.clear
+        boardView.backgroundColor = UIColor.white
         boardView.layer.borderWidth = 3
         
         let backgroundImage = UIImageView(frame: CGRect(x: -800, y: -700, width: 3000, height: 2000))
@@ -536,6 +550,7 @@ class DiscussionBoardViewController: UIViewController {
     
     @IBAction func deleteBtn(_ sender: UIButton) {
         self.detailPop.removeFromSuperview()
+        self.insertPop.removeFromSuperview()
     }
     
     @objc func changeColor(sender: UIButton) { // buttonの色を変化させるメソッド

@@ -137,5 +137,19 @@ class AccountViewController: UIViewController,UIImagePickerControllerDelegate, U
         self.view.endEditing(true)
     }
     
+    // 画面の自動回転をさせない
+    override var shouldAutorotate: Bool {
+        get {
+            return false
+        }
+    }
+    
+    // 画面をPortraitに指定する
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        get {
+            return .portrait
+        }
+    }
+    
 }
 

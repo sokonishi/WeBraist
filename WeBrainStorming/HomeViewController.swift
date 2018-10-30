@@ -236,5 +236,19 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         return nil
     }
+    
+    // 画面の自動回転をさせない
+    override var shouldAutorotate: Bool {
+        get {
+            return false
+        }
+    }
+    
+    // 画面をPortraitに指定する
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        get {
+            return .portrait
+        }
+    }
 
 }

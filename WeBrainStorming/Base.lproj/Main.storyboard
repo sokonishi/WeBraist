@@ -88,17 +88,13 @@
                         <viewLayoutGuide key="safeArea" id="uxA-oh-BT5"/>
                     </view>
                     <connections>
+                        <outlet property="backGroundImage" destination="nQY-pP-emh" id="Ys3-L0-G78"/>
                         <outlet property="emailTextField" destination="AYQ-IV-svp" id="SEs-yK-VGf"/>
                         <outlet property="passTextField" destination="bLY-pd-sjb" id="1Ma-ud-fqh"/>
                         <segue destination="8w5-Ac-ZVj" kind="show" identifier="loginSegue" id="xHs-uR-tLx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsr-7X-YC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="2ua-MR-crF">
-                    <connections>
-                        <action selector="tapScreen:" destination="leh-15-TEs" id="vpn-dA-PTk"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2279.1999999999998" y="354.87256371814095"/>
         </scene>
@@ -791,7 +787,7 @@
                             </constraints>
                             <state key="normal" image="バツ"/>
                             <connections>
-                                <action selector="deleteBtn:" destination="5YU-Gy-23k" eventType="touchUpInside" id="E91-3Z-PPG"/>
+                                <action selector="deleteBtn:" destination="5YU-Gy-23k" eventType="touchUpInside" id="2nx-cy-09I"/>
                             </connections>
                         </button>
                     </subviews>
@@ -860,7 +856,7 @@
                             </constraints>
                             <state key="normal" image="バツ"/>
                             <connections>
-                                <action selector="deleteBtn:" destination="5YU-Gy-23k" eventType="touchUpInside" id="bzI-6f-y6i"/>
+                                <action selector="deleteBtn:" destination="5YU-Gy-23k" eventType="touchUpInside" id="Fai-cN-uuX"/>
                             </connections>
                         </button>
                     </subviews>
@@ -1499,6 +1495,6 @@
         <image name="矢印アイコン　左4.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xHs-uR-tLx"/>
+        <segue reference="mYT-S2-Bc6"/>
     </inferredMetricsTieBreakers>
 </document>

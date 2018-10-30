@@ -14,7 +14,7 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
-    
+    @IBOutlet weak var backGroundImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,8 +111,22 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
         alert.view.layer.cornerRadius = 25 //角丸にする。
         present(alert,animated: true,completion: {()->Void in print("アラート表示")})//completionは動作完了時に発動。
     }
-
-    @IBAction func tapScreen(_ sender: UITapGestureRecognizer) {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    // 画面の自動回転をさせない
+    override var shouldAutorotate: Bool {
+        get {
+            return false
+        }
+    }
+    
+    // 画面をPortraitに指定する
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        get {
+            return .portrait
+        }
     }
 }
