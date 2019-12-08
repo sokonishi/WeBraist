@@ -3,13 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		481DDB7823976A4B00440794 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 481DDB7723976A4B00440794 /* GoogleService-Info.plist */; };
 		482147082166C923000CFEA7 /* WebRaist.png in Resources */ = {isa = PBXBuildFile; fileRef = 482147072166C923000CFEA7 /* WebRaist.png */; };
 		4821470C2166CC1A000CFEA7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821470B2166CC1A000CFEA7 /* LoginViewController.swift */; };
-		4821470E2166D281000CFEA7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4821470D2166D280000CFEA7 /* GoogleService-Info.plist */; };
 		482147102166D36F000CFEA7 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4821470F2166D36F000CFEA7 /* FirebaseCore.framework */; };
 		482147122166D37A000CFEA7 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 482147112166D37A000CFEA7 /* FirebaseFirestore.framework */; };
 		482147142166D383000CFEA7 /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 482147132166D383000CFEA7 /* FirebaseAuth.framework */; };
@@ -22,6 +22,7 @@
 		4840126B217D39CC00BF5026 /* webraistロゴ太め.png in Resources */ = {isa = PBXBuildFile; fileRef = 4840126A217D39C600BF5026 /* webraistロゴ太め.png */; };
 		4840126D217D4CD200BF5026 /* webraistロゴ頭青.png in Resources */ = {isa = PBXBuildFile; fileRef = 4840126C217D4CD200BF5026 /* webraistロゴ頭青.png */; };
 		4854F5472179F8150031D60E /* IdeaBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4854F5462179F8150031D60E /* IdeaBoardViewController.swift */; };
+		4858F59A238E2173001D3F78 /* WeBraist-Icon1536.png in Resources */ = {isa = PBXBuildFile; fileRef = 4858F599238E2172001D3F78 /* WeBraist-Icon1536.png */; };
 		486F91742173325F009E0D82 /* 無料の設定歯車アイコン.png in Resources */ = {isa = PBXBuildFile; fileRef = 486F91732173325D009E0D82 /* 無料の設定歯車アイコン.png */; };
 		486F917721733696009E0D82 /* コメントのアイコン素材 その2.png in Resources */ = {isa = PBXBuildFile; fileRef = 486F91752173368B009E0D82 /* コメントのアイコン素材 その2.png */; };
 		486F917821733696009E0D82 /* ハートのマーク3.png in Resources */ = {isa = PBXBuildFile; fileRef = 486F917621733691009E0D82 /* ハートのマーク3.png */; };
@@ -30,6 +31,7 @@
 		486F917E21776951009E0D82 /* 矢印アイコン　左4.png in Resources */ = {isa = PBXBuildFile; fileRef = 486F917D21776951009E0D82 /* 矢印アイコン　左4.png */; };
 		486F91802177E68C009E0D82 /* IdeaFireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F917F2177E68C009E0D82 /* IdeaFireViewController.swift */; };
 		486F91822177F892009E0D82 /* IdeaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F91812177F892009E0D82 /* IdeaTableViewCell.swift */; };
+		48A19CF22394D63300F1D4CE /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A19CF12394D63300F1D4CE /* MessageUI.framework */; };
 		48B841F02160B69200FD0688 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B841EF2160B69200FD0688 /* AppDelegate.swift */; };
 		48B841F22160B69200FD0688 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B841F12160B69200FD0688 /* ViewController.swift */; };
 		48B841F52160B69200FD0688 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B841F32160B69200FD0688 /* Main.storyboard */; };
@@ -37,21 +39,21 @@
 		48B841FA2160B69600FD0688 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B841F82160B69600FD0688 /* LaunchScreen.storyboard */; };
 		48BF35AB216EAF7B000139F7 /* DiscussionBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF35AA216EAF7A000139F7 /* DiscussionBoardViewController.swift */; };
 		48E83F85217EF28F006C0FD7 /* 人物のアイコンBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 48E83F84217EF289006C0FD7 /* 人物のアイコンBlue.png */; };
+		48F899EE2390D72F002446F2 /* CheckBox_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F899EC2390D72A002446F2 /* CheckBox_1.png */; };
+		48F899EF2390D72F002446F2 /* CheckBox_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 48F899ED2390D72E002446F2 /* CheckBox_0.png */; };
 		48FDF4472171C9CE00EE2E60 /* カギの開いた錠のアイコン素材 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 48FDF4462171C9CD00EE2E60 /* カギの開いた錠のアイコン素材 3.png */; };
 		48FDF4492171C9D800EE2E60 /* カギの開いた錠のアイコン素材 3 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 48FDF4482171C9D800EE2E60 /* カギの開いた錠のアイコン素材 3 (1).png */; };
 		48FDF44D2171CC4500EE2E60 /* 人物のアイコン素材 その3.png in Resources */ = {isa = PBXBuildFile; fileRef = 48FDF44C2171CC4000EE2E60 /* 人物のアイコン素材 その3.png */; };
 		48FDF44F2171D80C00EE2E60 /* プラスのアイコン素材.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 48FDF44E2171D80600EE2E60 /* プラスのアイコン素材.jpeg */; };
 		48FDF4512171D89B00EE2E60 /* リロードのフリーアイコン.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 48FDF4502171D89600EE2E60 /* リロードのフリーアイコン.jpeg */; };
 		48FDF4572171DDF000EE2E60 /* 矢印アイコン　左3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 48FDF4562171DDEA00EE2E60 /* 矢印アイコン　左3.jpeg */; };
-		F3C52BDA20977B98C8E3FCED /* Pods_WeBrainStorming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA8A31B93812081624023F8 /* Pods_WeBrainStorming.framework */; };
+		FE4690B4DE337575751DFC8D /* Pods_WeBrainStorming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF912E170770528AB29A8015 /* Pods_WeBrainStorming.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		03449B2E0486FC039BC2D36C /* Pods-WeBrainStorming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeBrainStorming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeBrainStorming/Pods-WeBrainStorming.debug.xcconfig"; sourceTree = "<group>"; };
-		15A5E3AA220DC2AD15DD0090 /* Pods-WeBrainStorming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeBrainStorming.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeBrainStorming/Pods-WeBrainStorming.release.xcconfig"; sourceTree = "<group>"; };
+		481DDB7723976A4B00440794 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		482147072166C923000CFEA7 /* WebRaist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WebRaist.png; sourceTree = "<group>"; };
 		4821470B2166CC1A000CFEA7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		4821470D2166D280000CFEA7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4821470F2166D36F000CFEA7 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		482147112166D37A000CFEA7 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		482147132166D383000CFEA7 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +66,7 @@
 		4840126A217D39C600BF5026 /* webraistロゴ太め.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "webraistロゴ太め.png"; sourceTree = "<group>"; };
 		4840126C217D4CD200BF5026 /* webraistロゴ頭青.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "webraistロゴ頭青.png"; sourceTree = "<group>"; };
 		4854F5462179F8150031D60E /* IdeaBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaBoardViewController.swift; sourceTree = "<group>"; };
+		4858F599238E2172001D3F78 /* WeBraist-Icon1536.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WeBraist-Icon1536.png"; sourceTree = "<group>"; };
 		486F91732173325D009E0D82 /* 無料の設定歯車アイコン.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "無料の設定歯車アイコン.png"; sourceTree = "<group>"; };
 		486F91752173368B009E0D82 /* コメントのアイコン素材 その2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "コメントのアイコン素材 その2.png"; sourceTree = "<group>"; };
 		486F917621733691009E0D82 /* ハートのマーク3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ハートのマーク3.png"; sourceTree = "<group>"; };
@@ -72,7 +75,8 @@
 		486F917D21776951009E0D82 /* 矢印アイコン　左4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "矢印アイコン　左4.png"; sourceTree = "<group>"; };
 		486F917F2177E68C009E0D82 /* IdeaFireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaFireViewController.swift; sourceTree = "<group>"; };
 		486F91812177F892009E0D82 /* IdeaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaTableViewCell.swift; sourceTree = "<group>"; };
-		48B841EC2160B69200FD0688 /* WeBrainStorming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeBrainStorming.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		48A19CF12394D63300F1D4CE /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		48B841EC2160B69200FD0688 /* WeBraist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeBraist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B841EF2160B69200FD0688 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48B841F12160B69200FD0688 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		48B841F42160B69200FD0688 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,13 +85,17 @@
 		48B841FB2160B69600FD0688 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48BF35AA216EAF7A000139F7 /* DiscussionBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscussionBoardViewController.swift; path = "/Users/konishiso/Documents/iOS アプリ/WeBrainStorming/WeBrainStorming/DiscussionBoardViewController.swift"; sourceTree = "<absolute>"; };
 		48E83F84217EF289006C0FD7 /* 人物のアイコンBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "人物のアイコンBlue.png"; sourceTree = "<group>"; };
+		48F899EC2390D72A002446F2 /* CheckBox_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CheckBox_1.png; path = ../../../../Downloads/CheckBox_1.png; sourceTree = "<group>"; };
+		48F899ED2390D72E002446F2 /* CheckBox_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckBox_0.png; sourceTree = "<group>"; };
 		48FDF4462171C9CD00EE2E60 /* カギの開いた錠のアイコン素材 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "カギの開いた錠のアイコン素材 3.png"; sourceTree = "<group>"; };
 		48FDF4482171C9D800EE2E60 /* カギの開いた錠のアイコン素材 3 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "カギの開いた錠のアイコン素材 3 (1).png"; sourceTree = "<group>"; };
 		48FDF44C2171CC4000EE2E60 /* 人物のアイコン素材 その3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "人物のアイコン素材 その3.png"; sourceTree = "<group>"; };
 		48FDF44E2171D80600EE2E60 /* プラスのアイコン素材.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "プラスのアイコン素材.jpeg"; sourceTree = "<group>"; };
 		48FDF4502171D89600EE2E60 /* リロードのフリーアイコン.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "リロードのフリーアイコン.jpeg"; sourceTree = "<group>"; };
 		48FDF4562171DDEA00EE2E60 /* 矢印アイコン　左3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "矢印アイコン　左3.jpeg"; sourceTree = "<group>"; };
-		BFA8A31B93812081624023F8 /* Pods_WeBrainStorming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeBrainStorming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5588D4E9D09C7FCD86D86F1F /* Pods-WeBrainStorming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeBrainStorming.debug.xcconfig"; path = "Target Support Files/Pods-WeBrainStorming/Pods-WeBrainStorming.debug.xcconfig"; sourceTree = "<group>"; };
+		B58E6D3184BE5A1A275F072D /* Pods-WeBrainStorming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeBrainStorming.release.xcconfig"; path = "Target Support Files/Pods-WeBrainStorming/Pods-WeBrainStorming.release.xcconfig"; sourceTree = "<group>"; };
+		FF912E170770528AB29A8015 /* Pods_WeBrainStorming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeBrainStorming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +104,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				482147142166D383000CFEA7 /* FirebaseAuth.framework in Frameworks */,
+				48A19CF22394D63300F1D4CE /* MessageUI.framework in Frameworks */,
 				482147122166D37A000CFEA7 /* FirebaseFirestore.framework in Frameworks */,
 				482147102166D36F000CFEA7 /* FirebaseCore.framework in Frameworks */,
-				F3C52BDA20977B98C8E3FCED /* Pods_WeBrainStorming.framework in Frameworks */,
+				FE4690B4DE337575751DFC8D /* Pods_WeBrainStorming.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,15 +119,15 @@
 			children = (
 				48B841EE2160B69200FD0688 /* WeBrainStorming */,
 				48B841ED2160B69200FD0688 /* Products */,
-				A8118AB5C3983B319D544BE4 /* Pods */,
 				B09D4723E5CCBB1A4F02C13B /* Frameworks */,
+				7D200BC783CA2C98BB59A22F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		48B841ED2160B69200FD0688 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				48B841EC2160B69200FD0688 /* WeBrainStorming.app */,
+				48B841EC2160B69200FD0688 /* WeBraist.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,7 +150,10 @@
 				4854F5462179F8150031D60E /* IdeaBoardViewController.swift */,
 				486F917F2177E68C009E0D82 /* IdeaFireViewController.swift */,
 				48B841F62160B69600FD0688 /* Assets.xcassets */,
+				48F899EC2390D72A002446F2 /* CheckBox_1.png */,
+				48F899ED2390D72E002446F2 /* CheckBox_0.png */,
 				482147072166C923000CFEA7 /* WebRaist.png */,
+				4858F599238E2172001D3F78 /* WeBraist-Icon1536.png */,
 				4821471521672893000CFEA7 /* スクリーンショット 2018-10-05 13.03.17.png */,
 				48B841F82160B69600FD0688 /* LaunchScreen.storyboard */,
 				48401268217D35C900BF5026 /* webraistロゴグレー.png */,
@@ -159,27 +171,29 @@
 				486F917D21776951009E0D82 /* 矢印アイコン　左4.png */,
 				48FDF44C2171CC4000EE2E60 /* 人物のアイコン素材 その3.png */,
 				48B841FB2160B69600FD0688 /* Info.plist */,
-				4821470D2166D280000CFEA7 /* GoogleService-Info.plist */,
+				481DDB7723976A4B00440794 /* GoogleService-Info.plist */,
 			);
 			path = WeBrainStorming;
 			sourceTree = "<group>";
 		};
-		A8118AB5C3983B319D544BE4 /* Pods */ = {
+		7D200BC783CA2C98BB59A22F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				03449B2E0486FC039BC2D36C /* Pods-WeBrainStorming.debug.xcconfig */,
-				15A5E3AA220DC2AD15DD0090 /* Pods-WeBrainStorming.release.xcconfig */,
+				5588D4E9D09C7FCD86D86F1F /* Pods-WeBrainStorming.debug.xcconfig */,
+				B58E6D3184BE5A1A275F072D /* Pods-WeBrainStorming.release.xcconfig */,
 			);
 			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		B09D4723E5CCBB1A4F02C13B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				48A19CF12394D63300F1D4CE /* MessageUI.framework */,
 				482147132166D383000CFEA7 /* FirebaseAuth.framework */,
 				482147112166D37A000CFEA7 /* FirebaseFirestore.framework */,
 				4821470F2166D36F000CFEA7 /* FirebaseCore.framework */,
-				BFA8A31B93812081624023F8 /* Pods_WeBrainStorming.framework */,
+				FF912E170770528AB29A8015 /* Pods_WeBrainStorming.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -191,12 +205,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48B841FE2160B69600FD0688 /* Build configuration list for PBXNativeTarget "WeBrainStorming" */;
 			buildPhases = (
-				48BA9B30D9E159CA263C07E4 /* [CP] Check Pods Manifest.lock */,
+				7FBD5DF507C0EC4058EF0163 /* [CP] Check Pods Manifest.lock */,
 				48B841E82160B69200FD0688 /* Sources */,
 				48B841E92160B69200FD0688 /* Frameworks */,
 				48B841EA2160B69200FD0688 /* Resources */,
-				2C0385734497868CCD00B74A /* [CP] Embed Pods Frameworks */,
-				38D344601D3603FB98A7C0FF /* [CP] Copy Pods Resources */,
+				4803EBC22397A82600A036E5 /* ShellScript */,
+				F26D5D0B11618A0363347B6E /* [CP] Embed Pods Frameworks */,
+				EB4C7E2EFB8F9335470948C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,7 +219,7 @@
 			);
 			name = WeBrainStorming;
 			productName = WeBrainStorming;
-			productReference = 48B841EC2160B69200FD0688 /* WeBrainStorming.app */;
+			productReference = 48B841EC2160B69200FD0688 /* WeBraist.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -248,14 +263,16 @@
 				4821471621672897000CFEA7 /* スクリーンショット 2018-10-05 13.03.17.png in Resources */,
 				48FDF4472171C9CE00EE2E60 /* カギの開いた錠のアイコン素材 3.png in Resources */,
 				48FDF4512171D89B00EE2E60 /* リロードのフリーアイコン.jpeg in Resources */,
-				4821470E2166D281000CFEA7 /* GoogleService-Info.plist in Resources */,
 				48FDF4492171C9D800EE2E60 /* カギの開いた錠のアイコン素材 3 (1).png in Resources */,
+				4858F59A238E2173001D3F78 /* WeBraist-Icon1536.png in Resources */,
 				482147082166C923000CFEA7 /* WebRaist.png in Resources */,
 				48B841FA2160B69600FD0688 /* LaunchScreen.storyboard in Resources */,
 				48B841F72160B69600FD0688 /* Assets.xcassets in Resources */,
 				4840126D217D4CD200BF5026 /* webraistロゴ頭青.png in Resources */,
 				48FDF44F2171D80C00EE2E60 /* プラスのアイコン素材.jpeg in Resources */,
 				486F917721733696009E0D82 /* コメントのアイコン素材 その2.png in Resources */,
+				481DDB7823976A4B00440794 /* GoogleService-Info.plist in Resources */,
+				48F899EE2390D72F002446F2 /* CheckBox_1.png in Resources */,
 				48FDF4572171DDF000EE2E60 /* 矢印アイコン　左3.jpeg in Resources */,
 				486F917821733696009E0D82 /* ハートのマーク3.png in Resources */,
 				48B841F52160B69200FD0688 /* Main.storyboard in Resources */,
@@ -265,88 +282,84 @@
 				4840126B217D39CC00BF5026 /* webraistロゴ太め.png in Resources */,
 				486F917E21776951009E0D82 /* 矢印アイコン　左4.png in Resources */,
 				48E83F85217EF28F006C0FD7 /* 人物のアイコンBlue.png in Resources */,
+				48F899EF2390D72F002446F2 /* CheckBox_0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2C0385734497868CCD00B74A /* [CP] Embed Pods Frameworks */ = {
+		4803EBC22397A82600A036E5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-WeBrainStorming/Pods-WeBrainStorming-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeBrainStorming/Pods-WeBrainStorming-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Set the build number to the count of Git commits\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
 		};
-		38D344601D3603FB98A7C0FF /* [CP] Copy Pods Resources */ = {
+		7FBD5DF507C0EC4058EF0163 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-WeBrainStorming/Pods-WeBrainStorming-resources.sh",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeBrainStorming/Pods-WeBrainStorming-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		48BA9B30D9E159CA263C07E4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-WeBrainStorming-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB4C7E2EFB8F9335470948C7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WeBrainStorming/Pods-WeBrainStorming-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WeBrainStorming/Pods-WeBrainStorming-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeBrainStorming/Pods-WeBrainStorming-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F26D5D0B11618A0363347B6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WeBrainStorming/Pods-WeBrainStorming-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WeBrainStorming/Pods-WeBrainStorming-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeBrainStorming/Pods-WeBrainStorming-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -510,19 +523,19 @@
 		};
 		48B841FF2160B69600FD0688 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 03449B2E0486FC039BC2D36C /* Pods-WeBrainStorming.debug.xcconfig */;
+			baseConfigurationReference = 5588D4E9D09C7FCD86D86F1F /* Pods-WeBrainStorming.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q9XTVNPMDU;
 				INFOPLIST_FILE = WeBrainStorming/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.konio.WeBrainStorming;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.konio.WeBrainStorm;
+				PRODUCT_NAME = WeBraist;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -530,19 +543,19 @@
 		};
 		48B842002160B69600FD0688 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15A5E3AA220DC2AD15DD0090 /* Pods-WeBrainStorming.release.xcconfig */;
+			baseConfigurationReference = B58E6D3184BE5A1A275F072D /* Pods-WeBrainStorming.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q9XTVNPMDU;
 				INFOPLIST_FILE = WeBrainStorming/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.konio.WeBrainStorming;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.konio.WeBrainStorm;
+				PRODUCT_NAME = WeBraist;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

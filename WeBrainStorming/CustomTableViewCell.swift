@@ -24,11 +24,10 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var themeImageLabel: UILabel!
     
     var indexPath = IndexPath()
-    var boardId: String!
+    var boardIdCell : String!
     
 //    var delegate:HomeViewController?
     var delegate:CellButtonDelegate!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,11 +41,44 @@ class CustomTableViewCell: UITableViewCell {
     }
 
     @IBAction func settingBtn(_ sender: UIButton) {
-        print("memo0",self.boardId)
-        delegate?.goNext(boardId)
+        print("memo0",self.boardIdCell)
+        delegate?.goNext(self.boardIdCell)
 //        delegate?.performSegue(withIdentifier: "toEditBoard", sender: boardId)
 
         //print(indexPath.row)
+    }
+
+    func setCell(boardImageCode:String,discussionBackgroundImage:String,themeList:String,detailList:String,dateList:String, boardId:String,lockList:Int){
+        
+        if boardImageCode != "" {
+            imageOfDiscussion.image = self.convertStringToUiImage(stringImageData: boardImageCode)
+            imageOfDiscussion.translatesAutoresizingMaskIntoConstraints = false
+        } else {
+            print("else働いてる")
+            imageOfDiscussion.image = UIImage(named: discussionBackgroundImage)
+        }
+        
+        themeLabel.text = themeList
+        detailLabel.text = detailList
+        dateLabel.text = dateList
+        boardIdCell = boardId
+        
+        if lockList == 1 {
+            keyMark.isHidden = true
+        }
+    }
+    
+    func convertStringToUiImage(stringImageData: String) -> UIImage! {
+        //BASE64の文字列をデコードしてNSDataを生成
+        let decodeBase64:NSData? =
+            NSData(base64Encoded:stringImageData, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)
+        //NSDataの生成が成功していたら
+        if let decodeSuccess = decodeBase64 {
+            //NSDataからUIImageを生成
+            let img = UIImage(data: decodeSuccess as Data)
+            return img
+        }
+        return nil
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

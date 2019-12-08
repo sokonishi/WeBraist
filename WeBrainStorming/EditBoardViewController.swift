@@ -9,8 +9,9 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import MessageUI
 
-class EditBoardViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditBoardViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,MFMailComposeViewControllerDelegate {
     
     var defaultStore : Firestore!
     let user = Auth.auth().currentUser
@@ -248,4 +249,28 @@ class EditBoardViewController: UIViewController,UIImagePickerControllerDelegate,
             return .portrait
         }
     }
+    @IBAction func mailButtonPressed(_ sender: UIButton) {
+    
+        if MFMailComposeViewController.canSendMail(){
+            
+            let mailComposeViewController = MFMailComposeViewController()
+            mailComposeViewController.setToRecipients(["sokonishi315@gmail.com"]) //宛先アドレス
+            mailComposeViewController.setSubject("このボードを通報する") //サブジェクト
+            mailComposeViewController.setMessageBody(boardID, isHTML: false) //メール本文
+            mailComposeViewController.setCcRecipients(["sokonishi315@gmail.com"])
+            mailComposeViewController.setBccRecipients(["sokonishi315@gmail.com"])
+
+            mailComposeViewController.mailComposeDelegate = self //delegateの設定
+            
+            present(mailComposeViewController,animated: true,completion: nil)
+        } else {
+            print("送信できません。")
+        }
+        
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
 }

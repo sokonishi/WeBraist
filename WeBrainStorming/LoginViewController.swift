@@ -15,6 +15,12 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
     @IBOutlet weak var backGroundImage: UIImageView!
+    @IBOutlet weak var contractBtn: UIButton!
+    @IBOutlet weak var signUpBtn: UIButton!
+    @IBOutlet weak var logInBtn: UIButton!
+    @IBOutlet weak var googleButtonView: UIView!
+    
+    var  contractNum = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +28,17 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-
+        print(self.emailTextField.frame.origin.y)
         //グーグルのボタン追加
         let googleBtn = GIDSignInButton()
-        googleBtn.frame = CGRect(x: 25, y: 360, width: self.view.frame.size.width - 50, height: 60)
-        view.addSubview(googleBtn)
+        googleBtn.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width - 50, height: 60)
+        googleButtonView.addSubview(googleBtn)
+        
+        signUpBtn.isEnabled =  false
+        logInBtn.isEnabled = false
+        signUpBtn.backgroundColor = UIColor(red: 169/225, green: 169/225, blue: 169/255, alpha: 1.0)
+        logInBtn.backgroundColor = UIColor(red: 169/225, green: 169/225, blue: 169/255, alpha: 1.0)
+//        googleBtn.isEnabled = false
     }
     
     //Googleログイン時の処理
@@ -110,6 +122,39 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
         //その他アラートオプション
         alert.view.layer.cornerRadius = 25 //角丸にする。
         present(alert,animated: true,completion: {()->Void in print("アラート表示")})//completionは動作完了時に発動。
+    }
+    
+    @IBAction func checkContractBtn(_ sender: UIButton) {
+    
+        if contractNum == 0 {
+            
+            contractNum = 1
+            print(contractNum)
+            let checkBoxImage = UIImage(named: "CheckBox_1")
+            contractBtn.setImage(checkBoxImage, for: .normal)
+            
+            signUpBtn.isEnabled =  true
+            logInBtn.isEnabled = true
+            
+            signUpBtn.backgroundColor = UIColor(red: 18/225, green: 182/225, blue: 199/255, alpha: 1.0)
+            logInBtn.backgroundColor = UIColor(red: 18/225, green: 182/225, blue: 199/255, alpha: 1.0)
+            
+        } else if contractNum == 1 {
+
+            contractNum = 0
+            print(contractNum)
+            let checkBoxImage = UIImage(named: "CheckBox_0")
+            contractBtn.setImage(checkBoxImage, for: .normal)
+
+            signUpBtn.isEnabled =  false
+            logInBtn.isEnabled = false
+//            self.googleBtn.isEnabled = false
+            
+            signUpBtn.backgroundColor = UIColor(red: 169/225, green: 169/225, blue: 169/255, alpha: 1.0)
+            logInBtn.backgroundColor = UIColor(red: 169/225, green: 169/225, blue: 169/255, alpha: 1.0)
+            
+        }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

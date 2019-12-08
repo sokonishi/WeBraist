@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
+   uuid = "7AE4C71E-C095-4489-9DBE-1A5BDC2E9A6C"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "154FDD88-5B78-4AB8-AA0F-52412A5F5FBD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -22,6 +24,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "67D07923-6FBC-430F-AB04-F8239C568C3C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -35,34 +38,34 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  uuid = "67D07923-6FBC-430F-AB04-F8239C568C3C - dfabae62e60f3209"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "WeBrainStorming.HomeViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; WeBrainStorming.HomeViewController"
                   moduleName = "WeBrainStorming"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/WeBrainStorming/HomeViewController.swift"
-                  timestampString = "561246058.244769"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
                   endingLineNumber = "18"
-                  offsetFromSymbolStart = "257">
+                  offsetFromSymbolStart = "355">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  uuid = "67D07923-6FBC-430F-AB04-F8239C568C3C - 5d95b6b6742a8c16"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "WeBrainStorming.HomeViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;WeBrainStorming.HomeViewController&gt;"
                   moduleName = "WeBrainStorming"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/WeBrainStorming/HomeViewController.swift"
-                  timestampString = "561246058.247409"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
                   endingLineNumber = "18"
-                  offsetFromSymbolStart = "221">
+                  offsetFromSymbolStart = "292">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -70,6 +73,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "E08C6873-D8AE-4C83-8EA7-AF0FCC54EBE7"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -86,6 +90,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "F9A66E53-B0B0-4265-B59A-59885295B080"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -102,6 +107,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "04D6247A-2DCF-4F40-B2E1-5571D3816B3A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -118,6 +124,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "2BFBA256-B891-4181-9CA8-066B3F198C03"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -125,15 +132,16 @@
             timestampString = "562550785.913303"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "alert(memo:)"
-            landmarkType = "7">
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "4A9D9F4C-1050-421A-B00D-AACE836CF000"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -150,6 +158,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "B89BA7B9-01D0-4204-B004-18402436FA59"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -160,6 +169,38 @@
             startingLineNumber = "41"
             endingLineNumber = "41"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ED5CA37C-F51C-42BB-80AA-9FE16F1F5E17"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeBrainStorming/LoginViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "61B809BD-681B-4B18-AB8D-A31CD35F6EE5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeBrainStorming/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
