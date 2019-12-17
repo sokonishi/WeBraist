@@ -19,6 +19,38 @@
             endingLineNumber = "461"
             landmarkName = "-parseScalarValue:context:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "154FDD88-5B78-4AB8-AA0F-52412A5F5FBD - 9110632262b00ba0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[FSTUserDataConverter parseScalarValue:context:]"
+                  moduleName = "WeBraist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/Pods/FirebaseFirestore/Firestore/Source/API/FSTUserDataConverter.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "463"
+                  endingLineNumber = "463"
+                  offsetFromSymbolStart = "1435">
+               </Location>
+               <Location
+                  uuid = "154FDD88-5B78-4AB8-AA0F-52412A5F5FBD - 9110632262b00ba0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[FSTUserDataConverter parseScalarValue:context:]"
+                  moduleName = "WeBraist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/Pods/FirebaseFirestore/Firestore/Source/API/FSTUserDataConverter.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "463"
+                  endingLineNumber = "463"
+                  offsetFromSymbolStart = "1440">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -132,10 +164,10 @@
             timestampString = "562550785.913303"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "login(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -192,14 +224,30 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "61B809BD-681B-4B18-AB8D-A31CD35F6EE5"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeBrainStorming/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3FC54F34-79C1-42D5-94C4-9D0BA07EE339"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeBrainStorming/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>

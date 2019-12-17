@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		481821E8239E0A40004396E7 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481821E7239E0A40004396E7 /* AuthenticationServices.framework */; };
 		481DDB7823976A4B00440794 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 481DDB7723976A4B00440794 /* GoogleService-Info.plist */; };
 		482147082166C923000CFEA7 /* WebRaist.png in Resources */ = {isa = PBXBuildFile; fileRef = 482147072166C923000CFEA7 /* WebRaist.png */; };
 		4821470C2166CC1A000CFEA7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821470B2166CC1A000CFEA7 /* LoginViewController.swift */; };
@@ -51,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		481821E7239E0A40004396E7 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		481821E9239E0F8C004396E7 /* WeBraist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeBraist.entitlements; sourceTree = "<group>"; };
 		481DDB7723976A4B00440794 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		482147072166C923000CFEA7 /* WebRaist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WebRaist.png; sourceTree = "<group>"; };
 		4821470B2166CC1A000CFEA7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				481821E8239E0A40004396E7 /* AuthenticationServices.framework in Frameworks */,
 				482147142166D383000CFEA7 /* FirebaseAuth.framework in Frameworks */,
 				48A19CF22394D63300F1D4CE /* MessageUI.framework in Frameworks */,
 				482147122166D37A000CFEA7 /* FirebaseFirestore.framework in Frameworks */,
@@ -135,6 +139,7 @@
 		48B841EE2160B69200FD0688 /* WeBrainStorming */ = {
 			isa = PBXGroup;
 			children = (
+				481821E9239E0F8C004396E7 /* WeBraist.entitlements */,
 				48B841EF2160B69200FD0688 /* AppDelegate.swift */,
 				48B841F12160B69200FD0688 /* ViewController.swift */,
 				4821470B2166CC1A000CFEA7 /* LoginViewController.swift */,
@@ -182,13 +187,13 @@
 				5588D4E9D09C7FCD86D86F1F /* Pods-WeBrainStorming.debug.xcconfig */,
 				B58E6D3184BE5A1A275F072D /* Pods-WeBrainStorming.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		B09D4723E5CCBB1A4F02C13B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				481821E7239E0A40004396E7 /* AuthenticationServices.framework */,
 				48A19CF12394D63300F1D4CE /* MessageUI.framework */,
 				482147132166D383000CFEA7 /* FirebaseAuth.framework */,
 				482147112166D37A000CFEA7 /* FirebaseFirestore.framework */,
@@ -526,6 +531,7 @@
 			baseConfigurationReference = 5588D4E9D09C7FCD86D86F1F /* Pods-WeBrainStorming.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WeBrainStorming/WeBraist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q9XTVNPMDU;
 				INFOPLIST_FILE = WeBrainStorming/Info.plist;
@@ -546,6 +552,7 @@
 			baseConfigurationReference = B58E6D3184BE5A1A275F072D /* Pods-WeBrainStorming.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WeBrainStorming/WeBraist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q9XTVNPMDU;
 				INFOPLIST_FILE = WeBrainStorming/Info.plist;

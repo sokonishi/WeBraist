@@ -166,12 +166,15 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                             self.iconImageCode = ""
                         } else {
                             self.iconImageCode = document.data()["UserImage"] as? String
+                            print(self.iconImageCode)
                         }
                     }
                     let iconImage = UIImageView()
-                    if self.iconImageCode == ""{
+                    if self.iconImageCode == "" || self.self.iconImageCode == nil {
                         iconImage.image = UIImage(named: "iconBlue")
                     } else {
+                        print(self.iconImageCode)
+                        print("なんで")
                         iconImage.image = self.convertStringToUiImage(stringImageData: self.iconImageCode)
                     }
                     
