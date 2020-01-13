@@ -8,11 +8,14 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 import GoogleSignIn
 import AuthenticationServices
 import CryptoKit
 
 class LoginViewController: UIViewController,GIDSignInDelegate {
+    
+    var defaultStore : Firestore!
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
@@ -29,19 +32,19 @@ class LoginViewController: UIViewController,GIDSignInDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        defaultStore = Firestore.firestore()
+        
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         print(self.emailTextField.frame.origin.y)
         
-        setupProviderLoginView()
-        
-        
+//        setupProviderLoginView()
         
         //グーグルのボタン追加
-        let googleBtn = GIDSignInButton()
-        googleBtn.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width - 50, height: 60)
-        googleButtonView.addSubview(googleBtn)
+//        let googleBtn = GIDSignInButton()
+//        googleBtn.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width - 50, height: 60)
+//        googleButtonView.addSubview(googleBtn)
         
         signUpBtn.isEnabled =  false
         logInBtn.isEnabled = false
@@ -102,6 +105,18 @@ class LoginViewController: UIViewController,GIDSignInDelegate {
             }
             if let authResult = authResult{
                 print("memo:新規登録成功",authResult.user.email!)
+                print(Auth.auth().currentUser!.uid)
+                self.defaultStore.collection("UserInformation").document(Auth.auth().currentUser!.uid).setData([
+                    "UserID": Auth.auth().currentUser!.uid,
+                    "AccountID": Auth.auth().currentUser!.uid,
+                ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                    }
+                }
+                
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }
         }

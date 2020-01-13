@@ -9,6 +9,7 @@
 import UIKit
 protocol CellButtonDelegate {
     func goNext(_ Id:String)
+    func dispAlert(_ Id:String,reportBtnTag:Int)
 }
 
 
@@ -22,6 +23,8 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var keyMark: UIButton!
     @IBOutlet weak var themeImageLabel: UILabel!
+
+    @IBOutlet weak var reportBtn: UIButton!
     
     var indexPath = IndexPath()
     var boardIdCell : String!
@@ -40,6 +43,13 @@ class CustomTableViewCell: UITableViewCell {
         detailLabel.isEditable = false
     }
 
+    @IBAction func alertBtn(_ sender: UIButton) {
+        print(self.boardIdCell)
+        print(reportBtn.tag)
+        delegate?.dispAlert(self.boardIdCell,reportBtnTag: reportBtn.tag)
+    }
+    
+    
     @IBAction func settingBtn(_ sender: UIButton) {
         print("memo0",self.boardIdCell)
         delegate?.goNext(self.boardIdCell)

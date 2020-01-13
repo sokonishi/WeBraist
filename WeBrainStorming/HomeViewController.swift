@@ -9,8 +9,9 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import MessageUI
 
-class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,CellButtonDelegate{
+class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MFMailComposeViewControllerDelegate,CellButtonDelegate{
 
     var defaultStore : Firestore!
     @IBOutlet weak var discussionTableView: UITableView!
@@ -25,7 +26,11 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var lockList:[Int] = []
     var backgroundNumList: [Int] = []
     var memberIDList: [NSArray] = []
+    var memberID:[String] = []
     var boardImageCodeList: [String] = []
+    var blockList:[String] = []
+    var blockListString:[String] = []
+    var checkBlockUser:[String] = []
     var iconImageCode: String!
     var userId: String!
     let user = Auth.auth().currentUser
@@ -46,6 +51,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         boardId = []
         dateList = []
         lockList = []
+        blockList = []
+        checkBlockUser = []
         
         //リロードで更新のやつ
         discussionTableView.refreshControl = refreshControl
@@ -58,6 +65,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 
                 print("viewDidLoadの処理の中")
                 self.userId = document.data()!["UserID"] as? String
+//                self.blockList = (document.data()?["BlockList"] as? [String]!)!
+//                print("block",self.blockList)
                 //getDocumentsは取ってくる
                 self.defaultStore.collection("DiscussionBoard").whereField("MemberID", arrayContains: self.userId).getDocuments() { (querySnapshot, err) in
                     if let err = err {
@@ -65,15 +74,21 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     } else {
                         for document in querySnapshot!.documents {
 //                            print("\(document.documentID) => \(document.data())")
-                            self.idList.append(document.documentID)
-                            self.themeList.append(document.data()["ThemeOfDiscussion"] as! String)
-                            self.detailList.append(document.data()["DetailOfDiscussion"] as! String)
-                            self.boardId.append(document.data()["BoardID"] as! String)
-                            self.dateList.append(document.data()["Date"] as! String)
-                            self.lockList.append(document.data()["Lock"] as! Int)
-                            self.backgroundNumList.append(document.data()["BackgroundNum"] as! Int)
-                            self.memberIDList.append(document.data()["MemberID"] as! NSArray)
-                            self.boardImageCodeList.append(document.data()["BoardImageCode"] as! String)
+                            self.checkBlockUser = (document.data()["MemberID"] as? [String])!
+                            print("ブロックユーザー",self.checkBlockUser[0])
+                            print("いるかいないか",self.blockList.contains(self.checkBlockUser[0]))
+                            
+                            if self.blockList.contains(self.checkBlockUser[0]) == false {
+                                self.idList.append(document.documentID)
+                                self.themeList.append(document.data()["ThemeOfDiscussion"] as! String)
+                                self.detailList.append(document.data()["DetailOfDiscussion"] as! String)
+                                self.boardId.append(document.data()["BoardID"] as! String)
+                                self.dateList.append(document.data()["Date"] as! String)
+                                self.lockList.append(document.data()["Lock"] as! Int)
+                                self.backgroundNumList.append(document.data()["BackgroundNum"] as! Int)
+                                self.memberIDList.append(document.data()["MemberID"] as! NSArray)
+                                self.boardImageCodeList.append(document.data()["BoardImageCode"] as! String)
+                            }
                         }
                         self.discussionTableView.reloadData()
                     }
@@ -83,8 +98,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 print("Document does not exist")
             }
         }
-//        print("member")
-//        print(self.memberIDList)
+        print(memberIDList)
     }
     
     //リロードで更新のやつ
@@ -100,27 +114,33 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         backgroundNumList = []
         memberIDList = []
         boardImageCodeList = []
+        blockList = []
+        checkBlockUser = []
         
 //        defaultStore.collection("DiscussionBoard").whereField("AccountID", isEqualTo: user?.uid).getDocuments() { (querySnapshot, err) in
         defaultStore.collection("UserInformation").document((self.user?.uid)!).getDocument { (document, error) in
             if let document = document, document.exists {
 
                 self.userId = document.data()!["UserID"] as? String
+                self.blockList = (document.data()!["BlockList"] as? [String])!
                 //getDocumentsは取ってくる
                 self.defaultStore.collection("DiscussionBoard").whereField("MemberID", arrayContains: self.userId!).getDocuments() { (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err)")
                     } else {
                         for document in querySnapshot!.documents {
-                            self.idList.append(document.documentID)
-                            self.themeList.append(document.data()["ThemeOfDiscussion"] as! String)
-                            self.detailList.append(document.data()["DetailOfDiscussion"] as! String)
-                            self.boardId.append(document.data()["BoardID"] as! String)
-                            self.dateList.append(document.data()["Date"] as! String)
-                            self.lockList.append(document.data()["Lock"] as! Int)
-                            self.backgroundNumList.append(document.data()["BackgroundNum"] as! Int)
-                            self.memberIDList.append(document.data()["MemberID"] as! NSArray)
-                            self.boardImageCodeList.append(document.data()["BoardImageCode"] as! String)
+                            self.checkBlockUser = (document.data()["MemberID"] as? [String])!
+                            if self.blockList.contains(self.checkBlockUser[0]) == false {
+                                self.idList.append(document.documentID)
+                                self.themeList.append(document.data()["ThemeOfDiscussion"] as! String)
+                                self.detailList.append(document.data()["DetailOfDiscussion"] as! String)
+                                self.boardId.append(document.data()["BoardID"] as! String)
+                                self.dateList.append(document.data()["Date"] as! String)
+                                self.lockList.append(document.data()["Lock"] as! Int)
+                                self.backgroundNumList.append(document.data()["BackgroundNum"] as! Int)
+                                self.memberIDList.append(document.data()["MemberID"] as! NSArray)
+                                self.boardImageCodeList.append(document.data()["BoardImageCode"] as! String)
+                            }
                         }
                         self.discussionTableView.reloadData()
                     }
@@ -133,6 +153,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         refreshControl.endRefreshing()
         
     }
+    
+    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
@@ -146,8 +168,10 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "boardCell") as! CustomTableViewCell
         print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-        print(self.memberIDList[indexPath.row])
+//        print(self.memberIDList[indexPath.row])
         cell.delegate = self
+        //タグの設定
+        cell.reportBtn.tag = indexPath.row
         
         let subViews = cell.boardView.subviews
         for subview in subViews{
@@ -166,14 +190,13 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                             self.iconImageCode = ""
                         } else {
                             self.iconImageCode = document.data()["UserImage"] as? String
-                            print(self.iconImageCode)
+//                            print(self.iconImageCode)
                         }
                     }
                     let iconImage = UIImageView()
                     if self.iconImageCode == "" || self.self.iconImageCode == nil {
                         iconImage.image = UIImage(named: "iconBlue")
                     } else {
-                        print(self.iconImageCode)
                         print("なんで")
                         iconImage.image = self.convertStringToUiImage(stringImageData: self.iconImageCode)
                     }
@@ -221,6 +244,115 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 
     func goNext(_ Id:String) {
         performSegue(withIdentifier: "toEditBoard", sender: Id)
+    }
+    
+    func dispAlert(_ ID:String,reportBtnTag:Int) {
+
+        let actionSheet: UIAlertController = UIAlertController(
+            title: "選択肢を表示",
+            message: "この投稿について",
+            preferredStyle: UIAlertController.Style.actionSheet)
+
+        // ②選択肢の作成と追加
+        // titleに選択肢のテキストを、styleに.defaultを
+        // handlerにボタンが押された時の処理をクロージャで実装する
+        actionSheet.addAction(
+            UIAlertAction(title: "削除する",
+                          style: .default,
+                          handler: {
+                            (action: UIAlertAction!) -> Void in
+                            print("削除する")
+                            print(reportBtnTag)
+                            self.memberID = self.memberIDList[reportBtnTag] as! [String]
+                            print("その１",self.memberID)
+                            self.memberID = self.memberID.filter{ $0 != self.userId}
+                            print("その２",self.memberID)
+                            print(ID)
+                         
+                            self.defaultStore.collection("DiscussionBoard").document(ID).updateData([
+                                "MemberID": self.memberID,
+
+                                ]) { err in
+                                    if let err = err {
+                                        print("Error writing document: \(err)")
+                                    } else {
+                                        print("Document successfully written!")
+                                    }
+                            }
+            })
+          
+        )
+
+        // ②選択肢の作成と追加
+        actionSheet.addAction(
+            UIAlertAction(title: "通報する",
+                          style: .default,
+                          handler: {
+                            (action: UIAlertAction!) -> Void in
+                            print("通報する")
+                            if MFMailComposeViewController.canSendMail(){
+                                
+                                let mailComposeViewController = MFMailComposeViewController()
+                                mailComposeViewController.setToRecipients(["sokonishi315@gmail.com"]) //宛先アドレス
+                                mailComposeViewController.setSubject("このボードを通報する") //サブジェクト
+                                mailComposeViewController.setMessageBody(ID, isHTML: false) //メール本文
+                                mailComposeViewController.setCcRecipients(["sokonishi315@gmail.com"])
+                                mailComposeViewController.setBccRecipients(["sokonishi315@gmail.com"])
+
+                                mailComposeViewController.mailComposeDelegate = self //delegateの設定
+                                
+                                self.present(mailComposeViewController,animated: true,completion: nil)
+                            } else {
+                                print("送信できません。")
+                            }
+            })
+        )
+        
+        // ②選択肢の作成と追加
+        actionSheet.addAction(
+            UIAlertAction(title: "投稿者をブロックする",
+                          style: .default,
+                          handler: {
+                            (action: UIAlertAction!) -> Void in
+                            print("投稿者をブロックする")
+                            print("投稿者ID",self.memberIDList[reportBtnTag][0])
+                            if self.memberIDList[reportBtnTag][0] as? String != self.userId {
+                                self.blockList.append((self.memberIDList[reportBtnTag][0] as? String)!)
+                                self.defaultStore.collection("UserInformation").document((self.user?.uid)!).updateData([
+                                    "BlockList": self.blockList,
+                                ]) { err in
+                                    if let err = err {
+                                        print("Error writing document: \(err)")
+                                    } else {
+                                        print("Document successfully written!")
+                                    }
+                                }
+                            }
+            })
+        )
+        
+        // ②選択肢の作成と追加
+        actionSheet.addAction(
+            UIAlertAction(title: "キャンセル",
+                          style: .default,
+                          handler: {
+                            (action: UIAlertAction!) -> Void in
+                            print("キャンセル")
+            })
+        )
+        // ③表示するViewと表示位置を指定する(デバイス自動判定版)
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+//            actionSheet.popoverPresentationController?.sourceView = view
+//            actionSheet.popoverPresentationController?.sourceRect = (sender as AnyObject).frame
+//        }
+
+        // ③アクションシートを表示
+        self.present(actionSheet, animated: true, completion: nil)
+        
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

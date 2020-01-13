@@ -64,8 +64,8 @@
             timestampString = "562550785.9093"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "HomeViewController"
             landmarkType = "3">
             <Locations>
@@ -164,10 +164,10 @@
             timestampString = "562550785.913303"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "login(_:)"
-            landmarkType = "7">
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -214,26 +214,10 @@
             filePath = "WeBrainStorming/LoginViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "11"
-            endingLineNumber = "11"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
             landmarkName = "unknown"
             landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "61B809BD-681B-4B18-AB8D-A31CD35F6EE5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeBrainStorming/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -246,9 +230,257 @@
             filePath = "WeBrainStorming/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9316F8FA-36A9-40BE-856C-0ED142EBA087"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeBrainStorming/CustomTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "CustomTableViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "9316F8FA-36A9-40BE-856C-0ED142EBA087 - efa710e4a3d80f7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeBraist.CustomTableViewCell.indexPath.getter : Foundation.IndexPath"
+                  moduleName = "WeBraist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/WeBrainStorming/CustomTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "9316F8FA-36A9-40BE-856C-0ED142EBA087 - 836dd0086169de31"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeBraist.CustomTableViewCell.indexPath.setter : Foundation.IndexPath"
+                  moduleName = "WeBraist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/WeBrainStorming/CustomTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "250">
+               </Location>
+               <Location
+                  uuid = "9316F8FA-36A9-40BE-856C-0ED142EBA087 - 9e72310d11b38b32"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeBraist.CustomTableViewCell.indexPath.modify : Foundation.IndexPath"
+                  moduleName = "WeBraist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/WeBrainStorming/CustomTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "9316F8FA-36A9-40BE-856C-0ED142EBA087 - 384d43e206fc308d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeBraist.CustomTableViewCell.indexPath.modify : Foundation.IndexPath with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "WeBraist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/WeBrainStorming/CustomTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "9316F8FA-36A9-40BE-856C-0ED142EBA087 - fa225056153690b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeBraist.CustomTableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; WeBraist.CustomTableViewCell"
+                  moduleName = "WeBraist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/WeBrainStorming/CustomTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "1015">
+               </Location>
+               <Location
+                  uuid = "9316F8FA-36A9-40BE-856C-0ED142EBA087 - e9b73d1ef2b36bd6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeBraist.CustomTableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;WeBraist.CustomTableViewCell&gt;"
+                  moduleName = "WeBraist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/WeBrainStorming/CustomTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "968">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB82F881-51A2-4DA4-9561-F16718D10A60"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeBrainStorming/CustomTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "CustomTableViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "FB82F881-51A2-4DA4-9561-F16718D10A60 - 94a725383d1918d2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeBraist.CustomTableViewCell.boardIdCell.getter : Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "WeBraist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/WeBrainStorming/CustomTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "131">
+               </Location>
+               <Location
+                  uuid = "FB82F881-51A2-4DA4-9561-F16718D10A60 - e8d423b5076c48e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeBraist.CustomTableViewCell.boardIdCell.setter : Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "WeBraist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/WeBrainStorming/CustomTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "153">
+               </Location>
+               <Location
+                  uuid = "FB82F881-51A2-4DA4-9561-F16718D10A60 - 416016913a317cd7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeBraist.CustomTableViewCell.boardIdCell.modify : Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "WeBraist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/WeBrainStorming/CustomTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "FB82F881-51A2-4DA4-9561-F16718D10A60 - 4ba1d5dbeac73ce2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeBraist.CustomTableViewCell.boardIdCell.modify : Swift.Optional&lt;Swift.String&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "WeBraist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/WeBrainStorming/CustomTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "FB82F881-51A2-4DA4-9561-F16718D10A60 - fa225056153690b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeBraist.CustomTableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; WeBraist.CustomTableViewCell"
+                  moduleName = "WeBraist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/WeBrainStorming/CustomTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1132">
+               </Location>
+               <Location
+                  uuid = "FB82F881-51A2-4DA4-9561-F16718D10A60 - e9b73d1ef2b36bd6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeBraist.CustomTableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;WeBraist.CustomTableViewCell&gt;"
+                  moduleName = "WeBraist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konishiso/Documents/iOS%20%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA/WeBrainStorming/WeBrainStorming/CustomTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1085">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A6DBF8F4-D77D-4116-8224-EC484638BB33"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeBrainStorming/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D6326AA-E21E-458A-B08E-A3684BB5A613"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeBrainStorming/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

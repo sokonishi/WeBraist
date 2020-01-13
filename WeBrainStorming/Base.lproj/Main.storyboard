@@ -82,7 +82,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65l-7R-LoL" customClass="UIStackView">
                                 <rect key="frame" x="30" y="595" width="354" height="45"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Klj-Fr-1X3"/>
                                 </constraints>
@@ -190,7 +190,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s2V-ve-ZT1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1287" y="402"/>
+            <point key="canvasLocation" x="-1425" y="354"/>
         </scene>
         <!--Ideas-->
         <scene sceneID="Cfv-8E-YF3">
@@ -279,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L7R-dj-nkl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-207.19999999999999" y="1270.6146926536733"/>
+            <point key="canvasLocation" x="-600" y="1088"/>
         </scene>
         <!--Idea Board View Controller-->
         <scene sceneID="Zvf-wR-ECj">
@@ -385,7 +385,7 @@
                     </connections>
                 </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="838" y="1435"/>
+            <point key="canvasLocation" x="223" y="1088"/>
         </scene>
         <!--User-->
         <scene sceneID="mGe-98-zBT">
@@ -538,7 +538,22 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-207.19999999999999" y="2049.6251874062968"/>
+            <point key="canvasLocation" x="-600" y="1832"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="UFh-hQ-v16">
+            <objects>
+                <viewController id="YPn-fS-4tk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="poi-Db-tEl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="XFs-D5-a3q"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pSm-fe-NIx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="222" y="1831"/>
         </scene>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
@@ -636,6 +651,14 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18o-JF-zaJ">
+                                                            <rect key="frame" x="346" y="113" width="46" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <connections>
+                                                                <action selector="alertBtn:" destination="1xm-vO-bDL" eventType="touchUpInside" id="z7r-Wd-wfE"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -674,6 +697,7 @@
                                             <outlet property="detailLabel" destination="7ED-sW-7zd" id="Crk-qB-kOA"/>
                                             <outlet property="imageOfDiscussion" destination="m2g-FN-Wxb" id="hwa-PD-Phn"/>
                                             <outlet property="keyMark" destination="7RN-Pn-qAJ" id="Q0A-Uz-CJa"/>
+                                            <outlet property="reportBtn" destination="18o-JF-zaJ" id="4dG-LB-dY5"/>
                                             <outlet property="themeImageLabel" destination="etV-fB-VEa" id="Q06-gR-YsP"/>
                                             <outlet property="themeLabel" destination="v70-8q-GCQ" id="iFA-Fu-87K"/>
                                         </connections>
@@ -711,7 +735,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-207.19999999999999" y="-657.12143928035982"/>
+            <point key="canvasLocation" x="-600" y="-388"/>
         </scene>
         <!--Discussion Board View Controller-->
         <scene sceneID="Zwy-Ep-U6E">
@@ -949,7 +973,7 @@
                     </connections>
                 </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="838" y="-657"/>
+            <point key="canvasLocation" x="254" y="-388"/>
         </scene>
         <!--Discuss-->
         <scene sceneID="i8C-FT-KGu">
@@ -1205,7 +1229,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-178" y="302"/>
+            <point key="canvasLocation" x="-599" y="337"/>
         </scene>
         <!--Edit Board View Controller-->
         <scene sceneID="sPq-Mh-7i5">
@@ -1389,10 +1413,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                 <state key="normal" title="通報する">
-                                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="addMember:" destination="D33-Iq-ysX" eventType="touchUpInside" id="4WX-8Z-xoJ"/>
                                                     <action selector="addMember:" destination="rZ7-Zt-O7Q" eventType="touchUpInside" id="x2N-Ci-9ji"/>
                                                     <action selector="mailButtonPressed:" destination="D33-Iq-ysX" eventType="touchUpInside" id="UjB-wC-fIE"/>
                                                 </connections>
@@ -1492,7 +1515,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="837.60000000000002" y="337.33133433283359"/>
+            <point key="canvasLocation" x="254" y="323"/>
         </scene>
         <!--Policy View Controller-->
         <scene sceneID="oiZ-WN-Lf9">
@@ -1618,7 +1641,7 @@ Googleによって広告の第三者配信が認められている広告配信�
         <image name="矢印アイコン　左4.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xHs-uR-tLx"/>
-        <segue reference="jWa-6W-bPQ"/>
+        <segue reference="SrG-9m-lN3"/>
+        <segue reference="3qQ-MN-6Av"/>
     </inferredMetricsTieBreakers>
 </document>
