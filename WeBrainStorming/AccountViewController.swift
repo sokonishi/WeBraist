@@ -92,7 +92,7 @@ class AccountViewController: UIViewController,UIImagePickerControllerDelegate, U
     
     @IBAction func register(_ sender: UIButton) {
         
-        defaultStore.collection("UserInformation").document((self.user?.uid)!).setData([
+        defaultStore.collection("UserInformation").document((self.user?.uid)!).updateData([
             "UserName": userNameField.text!,
             "UserID": userIDField.text!,
 //            "Lock": lockOrNot,

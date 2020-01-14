@@ -27,7 +27,8 @@ class LoginViewController: UIViewController,GIDSignInDelegate {
     
     @IBOutlet weak var loginProviderStackView: UIStackView!
     
-    var  contractNum = 0
+    var contractNum = 0
+    var blockList:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,6 +110,7 @@ class LoginViewController: UIViewController,GIDSignInDelegate {
                 self.defaultStore.collection("UserInformation").document(Auth.auth().currentUser!.uid).setData([
                     "UserID": Auth.auth().currentUser!.uid,
                     "AccountID": Auth.auth().currentUser!.uid,
+                    "BlockList":self.blockList,
                 ]) { err in
                 if let err = err {
                     print("Error writing document: \(err)")

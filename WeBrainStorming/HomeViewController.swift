@@ -68,6 +68,9 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 //                self.blockList = (document.data()?["BlockList"] as? [String]!)!
 //                print("block",self.blockList)
                 //getDocumentsは取ってくる
+                self.blockList = (document.data()?["BlockList"] as? [String])!
+                print("ブロックリスト",self.blockList)
+                
                 self.defaultStore.collection("DiscussionBoard").whereField("MemberID", arrayContains: self.userId).getDocuments() { (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err)")
@@ -341,10 +344,11 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             })
         )
         // ③表示するViewと表示位置を指定する(デバイス自動判定版)
-//        if UIDevice.current.userInterfaceIdiom == .pad {
-//            actionSheet.popoverPresentationController?.sourceView = view
-//            actionSheet.popoverPresentationController?.sourceRect = (sender as AnyObject).frame
-//        }
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            actionSheet.popoverPresentationController?.sourceView = view
+            let screenSize = UIScreen.main.bounds
+            actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width/2, y: screenSize.size.height, width: 0, height: 0)
+        }
 
         // ③アクションシートを表示
         self.present(actionSheet, animated: true, completion: nil)

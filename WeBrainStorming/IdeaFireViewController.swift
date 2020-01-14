@@ -41,7 +41,7 @@ class IdeaFireViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
+//                    print("\(document.documentID) => \(document.data())")
                     self.themeList.append(document.data()["ThemeOfDiscussion"] as! String)
                     self.boardId.append(document.data()["BoardID"] as! String)
                     self.backgroundNumList.append(document.data()["BackgroundNum"] as! Int)
