@@ -14,7 +14,6 @@
 		482147102166D36F000CFEA7 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4821470F2166D36F000CFEA7 /* FirebaseCore.framework */; };
 		482147122166D37A000CFEA7 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 482147112166D37A000CFEA7 /* FirebaseFirestore.framework */; };
 		482147142166D383000CFEA7 /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 482147132166D383000CFEA7 /* FirebaseAuth.framework */; };
-		4821471621672897000CFEA7 /* スクリーンショット 2018-10-05 13.03.17.png in Resources */ = {isa = PBXBuildFile; fileRef = 4821471521672893000CFEA7 /* スクリーンショット 2018-10-05 13.03.17.png */; };
 		4821471821673473000CFEA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821471721673473000CFEA7 /* HomeViewController.swift */; };
 		4821471A21673B61000CFEA7 /* SetBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821471921673B61000CFEA7 /* SetBoardViewController.swift */; };
 		4821471C2168677A000CFEA7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821471B2168677A000CFEA7 /* CustomTableViewCell.swift */; };
@@ -60,7 +59,6 @@
 		4821470F2166D36F000CFEA7 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		482147112166D37A000CFEA7 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		482147132166D383000CFEA7 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4821471521672893000CFEA7 /* スクリーンショット 2018-10-05 13.03.17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "スクリーンショット 2018-10-05 13.03.17.png"; sourceTree = "<group>"; };
 		4821471721673473000CFEA7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4821471921673B61000CFEA7 /* SetBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBoardViewController.swift; sourceTree = "<group>"; };
 		4821471B2168677A000CFEA7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 				48F899ED2390D72E002446F2 /* CheckBox_0.png */,
 				482147072166C923000CFEA7 /* WebRaist.png */,
 				4858F599238E2172001D3F78 /* WeBraist-Icon1536.png */,
-				4821471521672893000CFEA7 /* スクリーンショット 2018-10-05 13.03.17.png */,
 				48B841F82160B69600FD0688 /* LaunchScreen.storyboard */,
 				48401268217D35C900BF5026 /* webraistロゴグレー.png */,
 				4840126C217D4CD200BF5026 /* webraistロゴ頭青.png */,
@@ -265,7 +262,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4821471621672897000CFEA7 /* スクリーンショット 2018-10-05 13.03.17.png in Resources */,
 				48FDF4472171C9CE00EE2E60 /* カギの開いた錠のアイコン素材 3.png in Resources */,
 				48FDF4512171D89B00EE2E60 /* リロードのフリーアイコン.jpeg in Resources */,
 				48FDF4492171C9D800EE2E60 /* カギの開いた錠のアイコン素材 3 (1).png in Resources */,
@@ -533,7 +529,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WeBrainStorming/WeBraist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = Q9XTVNPMDU;
 				INFOPLIST_FILE = WeBrainStorming/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -555,7 +551,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WeBrainStorming/WeBraist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = Q9XTVNPMDU;
 				INFOPLIST_FILE = WeBrainStorming/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -637,7 +633,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WeBrainStorming/WeBraist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = Q9XTVNPMDU;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					Debug,

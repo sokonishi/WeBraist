@@ -251,22 +251,38 @@ class EditBoardViewController: UIViewController,UIImagePickerControllerDelegate,
     }
     @IBAction func mailButtonPressed(_ sender: UIButton) {
     
-        if MFMailComposeViewController.canSendMail(){
-            
-            let mailComposeViewController = MFMailComposeViewController()
-            mailComposeViewController.setToRecipients(["sokonishi315@gmail.com"]) //宛先アドレス
-            mailComposeViewController.setSubject("このボードを通報する") //サブジェクト
-            mailComposeViewController.setMessageBody(boardID, isHTML: false) //メール本文
-            mailComposeViewController.setCcRecipients(["sokonishi315@gmail.com"])
-            mailComposeViewController.setBccRecipients(["sokonishi315@gmail.com"])
+//        if MFMailComposeViewController.canSendMail(){
+//
+//            let mailComposeViewController = MFMailComposeViewController()
+//            mailComposeViewController.setToRecipients(["sokonishi315@gmail.com"]) //宛先アドレス
+//            mailComposeViewController.setSubject("このボードを通報する") //サブジェクト
+//            mailComposeViewController.setMessageBody(boardID, isHTML: false) //メール本文
+//            mailComposeViewController.setCcRecipients(["sokonishi315@gmail.com"])
+//            mailComposeViewController.setBccRecipients(["sokonishi315@gmail.com"])
+//
+//            mailComposeViewController.mailComposeDelegate = self //delegateの設定
+//
+//            present(mailComposeViewController,animated: true,completion: nil)
+//        } else {
+//            print("送信できません。")
+//        }
+        let date = DateFormatter()
+        date.dateFormat = "yyyy/MM/dd"
+        let now = Date()
+        print(date.string(from: now)) //2017年8月13日
 
-            mailComposeViewController.mailComposeDelegate = self //delegateの設定
-            
-            present(mailComposeViewController,animated: true,completion: nil)
-        } else {
-            print("送信できません。")
+        //ユーザーとボードを紐付け
+        self.defaultStore.collection("ReportProblem").document(boardID).setData([
+            "Date": date.string(from: now),
+            "AccountID": self.user?.uid,
+            "BoardID": boardID,
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
         }
-        
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {

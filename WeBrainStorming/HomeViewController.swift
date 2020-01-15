@@ -106,54 +106,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     //リロードで更新のやつ
     @objc func refresh(sender: UIRefreshControl) {
-        // ここに通信処理などデータフェッチの処理を書く
-        // データフェッチが終わったらUIRefreshControl.endRefreshing()を呼ぶ必要がある
-        idList = []
-        themeList = []
-        detailList = []
-        boardId = []
-        dateList = []
-        lockList = []
-        backgroundNumList = []
-        memberIDList = []
-        boardImageCodeList = []
-        blockList = []
-        checkBlockUser = []
-        
-//        defaultStore.collection("DiscussionBoard").whereField("AccountID", isEqualTo: user?.uid).getDocuments() { (querySnapshot, err) in
-        defaultStore.collection("UserInformation").document((self.user?.uid)!).getDocument { (document, error) in
-            if let document = document, document.exists {
 
-                self.userId = document.data()!["UserID"] as? String
-                self.blockList = (document.data()!["BlockList"] as? [String])!
-                //getDocumentsは取ってくる
-                self.defaultStore.collection("DiscussionBoard").whereField("MemberID", arrayContains: self.userId!).getDocuments() { (querySnapshot, err) in
-                    if let err = err {
-                        print("Error getting documents: \(err)")
-                    } else {
-                        for document in querySnapshot!.documents {
-                            self.checkBlockUser = (document.data()["MemberID"] as? [String])!
-                            if self.blockList.contains(self.checkBlockUser[0]) == false {
-                                self.idList.append(document.documentID)
-                                self.themeList.append(document.data()["ThemeOfDiscussion"] as! String)
-                                self.detailList.append(document.data()["DetailOfDiscussion"] as! String)
-                                self.boardId.append(document.data()["BoardID"] as! String)
-                                self.dateList.append(document.data()["Date"] as! String)
-                                self.lockList.append(document.data()["Lock"] as! Int)
-                                self.backgroundNumList.append(document.data()["BackgroundNum"] as! Int)
-                                self.memberIDList.append(document.data()["MemberID"] as! NSArray)
-                                self.boardImageCodeList.append(document.data()["BoardImageCode"] as! String)
-                            }
-                        }
-                        self.discussionTableView.reloadData()
-                    }
-                }
-            } else {
-                print("Document does not exist")
-            }
-        }
-        
-        refreshControl.endRefreshing()
+        relodeTableData()
         
     }
     
@@ -280,6 +234,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                                         print("Error writing document: \(err)")
                                     } else {
                                         print("Document successfully written!")
+                                        self.relodeTableData()
                                     }
                             }
             })
@@ -293,20 +248,39 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                           handler: {
                             (action: UIAlertAction!) -> Void in
                             print("通報する")
-                            if MFMailComposeViewController.canSendMail(){
-                                
-                                let mailComposeViewController = MFMailComposeViewController()
-                                mailComposeViewController.setToRecipients(["sokonishi315@gmail.com"]) //宛先アドレス
-                                mailComposeViewController.setSubject("このボードを通報する") //サブジェクト
-                                mailComposeViewController.setMessageBody(ID, isHTML: false) //メール本文
-                                mailComposeViewController.setCcRecipients(["sokonishi315@gmail.com"])
-                                mailComposeViewController.setBccRecipients(["sokonishi315@gmail.com"])
+//                            if MFMailComposeViewController.canSendMail(){
+//
+//                                let mailComposeViewController = MFMailComposeViewController()
+//                                mailComposeViewController.setToRecipients(["sokonishi315@gmail.com"]) //宛先アドレス
+//                                mailComposeViewController.setSubject("このボードを通報する") //サブジェクト
+//                                mailComposeViewController.setMessageBody(ID, isHTML: false) //メール本文
+//                                mailComposeViewController.setCcRecipients(["sokonishi315@gmail.com"])
+//                                mailComposeViewController.setBccRecipients(["sokonishi315@gmail.com"])
+//
+//                                mailComposeViewController.mailComposeDelegate = self //delegateの設定
+//
+//                                self.present(mailComposeViewController,animated: true,completion: nil)
+//                            } else {
+//                                print("送信できません。")
+//                            }
+                            
+                            //日付入力
+                            let date = DateFormatter()
+                            date.dateFormat = "yyyy/MM/dd"
+                            let now = Date()
+                            print(date.string(from: now)) //2017年8月13日
 
-                                mailComposeViewController.mailComposeDelegate = self //delegateの設定
-                                
-                                self.present(mailComposeViewController,animated: true,completion: nil)
-                            } else {
-                                print("送信できません。")
+                            //ユーザーとボードを紐付け
+                            self.defaultStore.collection("ReportProblem").document(ID).setData([
+                                "Date": date.string(from: now),
+                                "AccountID": self.user?.uid,
+                                "BoardID": ID,
+                            ]) { err in
+                                if let err = err {
+                                    print("Error writing document: \(err)")
+                                } else {
+                                    print("Document successfully written!")
+                                }
                             }
             })
         )
@@ -328,6 +302,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                                         print("Error writing document: \(err)")
                                     } else {
                                         print("Document successfully written!")
+                                        self.relodeTableData()
                                     }
                                 }
                             }
@@ -376,6 +351,57 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             controller.boardTheme = boardTheme
             controller.boardColorNum = boardColorNum
         }
+    }
+    
+    func relodeTableData(){
+            // ここに通信処理などデータフェッチの処理を書く
+            // データフェッチが終わったらUIRefreshControl.endRefreshing()を呼ぶ必要がある
+            idList = []
+            themeList = []
+            detailList = []
+            boardId = []
+            dateList = []
+            lockList = []
+            backgroundNumList = []
+            memberIDList = []
+            boardImageCodeList = []
+            blockList = []
+            checkBlockUser = []
+            
+    //        defaultStore.collection("DiscussionBoard").whereField("AccountID", isEqualTo: user?.uid).getDocuments() { (querySnapshot, err) in
+            defaultStore.collection("UserInformation").document((self.user?.uid)!).getDocument { (document, error) in
+                if let document = document, document.exists {
+
+                    self.userId = document.data()!["UserID"] as? String
+                    self.blockList = (document.data()!["BlockList"] as? [String])!
+                    //getDocumentsは取ってくる
+                    self.defaultStore.collection("DiscussionBoard").whereField("MemberID", arrayContains: self.userId!).getDocuments() { (querySnapshot, err) in
+                        if let err = err {
+                            print("Error getting documents: \(err)")
+                        } else {
+                            for document in querySnapshot!.documents {
+                                self.checkBlockUser = (document.data()["MemberID"] as? [String])!
+                                if self.blockList.contains(self.checkBlockUser[0]) == false {
+                                    self.idList.append(document.documentID)
+                                    self.themeList.append(document.data()["ThemeOfDiscussion"] as! String)
+                                    self.detailList.append(document.data()["DetailOfDiscussion"] as! String)
+                                    self.boardId.append(document.data()["BoardID"] as! String)
+                                    self.dateList.append(document.data()["Date"] as! String)
+                                    self.lockList.append(document.data()["Lock"] as! Int)
+                                    self.backgroundNumList.append(document.data()["BackgroundNum"] as! Int)
+                                    self.memberIDList.append(document.data()["MemberID"] as! NSArray)
+                                    self.boardImageCodeList.append(document.data()["BoardImageCode"] as! String)
+                                }
+                            }
+                            self.discussionTableView.reloadData()
+                        }
+                    }
+                } else {
+                    print("Document does not exist")
+                }
+            }
+        
+        refreshControl.endRefreshing()
     }
     
     func convertStringToUiImage(stringImageData: String) -> UIImage! {
