@@ -292,7 +292,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		4803EBC22397A82600A036E5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -305,7 +305,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Set the build number to the count of Git commits\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Set the build number to the count of Git commits\n\n";
 		};
 		7FBD5DF507C0EC4058EF0163 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -529,7 +529,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WeBrainStorming/WeBraist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = Q9XTVNPMDU;
 				INFOPLIST_FILE = WeBrainStorming/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -537,6 +537,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.konio.WeBrainStorm;
 				PRODUCT_NAME = WeBraist;
 				SWIFT_VERSION = 4.2;
@@ -551,7 +552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WeBrainStorming/WeBraist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = Q9XTVNPMDU;
 				INFOPLIST_FILE = WeBrainStorming/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -559,6 +560,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.konio.WeBrainStorm;
 				PRODUCT_NAME = WeBraist;
 				SWIFT_VERSION = 4.2;
@@ -633,7 +635,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WeBrainStorming/WeBraist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = Q9XTVNPMDU;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					Debug,
@@ -645,6 +647,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "Debug new=sokonishi";
 				PRODUCT_BUNDLE_IDENTIFIER = com.konio.WeBrainStorm;
 				PRODUCT_NAME = WeBraist;
